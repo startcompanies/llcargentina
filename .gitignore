@@ -7,8 +7,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-# public/uploads/blog/*
-# !public/uploads/blog/.gitkeep
+public/uploads/blog/*
+!public/uploads/blog/.gitkeep
 .env
 .env.local
-/public
