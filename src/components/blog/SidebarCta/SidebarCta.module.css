@@ -1,0 +1,132 @@
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #001020 0%, #001627 55%, #002240 100%);
+}
+
+.content {
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.highlight {
+  font-size: 1.6rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #01c9e2 0%, #006afe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  width: 100%;
+  justify-items: center;
+}
+
+.features li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 7px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.features li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--secondary);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #01c9e2 0%, #006afe 100%);
+  color: var(--white);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 8px 24px rgba(0, 106, 254, 0.3);
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.avatars {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #001627;
+  margin-left: -8px;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.proof {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.proofLabel {
+  color: var(--white);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.rating {
+  margin-left: 4px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.72rem;
+  font-weight: 600;
+}

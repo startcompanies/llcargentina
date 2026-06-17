@@ -1,0 +1,109 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String?
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model MediaAsset {
+  id              String     @id @default(cuid())
+  storageKey      String     @unique
+  url             String
+  alt             String?
+  mimeType        String?
+  fileName        String?
+  sizeBytes       Int?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  featuredPosts   Post[]     @relation("PostFeaturedImage")
+  openGraphPosts  Post[]     @relation("PostOpenGraphImage")
+  categoryCards   Category[] @relation("CategoryCardImage")
+}
+
+model Category {
+  id          String       @id @default(cuid())
+  name        String
+  slug        String       @unique
+  description String?
+  icon        CategoryIcon @default(DOCUMENT)
+  cardImageId String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  cardImage   MediaAsset?  @relation("CategoryCardImage", fields: [cardImageId], references: [id], onDelete: SetNull)
+  posts       Post[]
+}
+
+model Post {
+  id               String       @id @default(cuid())
+  sourceType       String?
+  sourceId         String?      @unique
+  sourceUrl        String?
+  slug             String       @unique
+  title            String
+  excerpt          String?
+  status           PostStatus   @default(DRAFT)
+  featuredRank     Int?
+  heroBadge        String?
+  heroTitleHtml    String?
+  heroSubtitle     String?
+  metaTitle        String?
+  metaDescription  String?
+  canonicalUrl     String?
+  keywords         String[]     @default([])
+  readingTimeMins  Int?
+  publishedAt      DateTime?
+  featuredImageId  String?
+  openGraphImageId String?
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+  featuredImage    MediaAsset?  @relation("PostFeaturedImage", fields: [featuredImageId], references: [id], onDelete: SetNull)
+  openGraphImage   MediaAsset?  @relation("PostOpenGraphImage", fields: [openGraphImageId], references: [id], onDelete: SetNull)
+  categories       Category[]
+  sections         PostSection[]
+}
+
+model PostSection {
+  id        String          @id @default(cuid())
+  postId    String
+  type      PostSectionType
+  position  Int
+  html      String?
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+  post      Post            @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, position])
+  @@index([postId, position])
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum PostSectionType {
+  RICH_TEXT
+  CTA_CONSULTATION
+  CTA_PRICING
+  FAQ_MODULE
+}
+
+enum CategoryIcon {
+  BUILDING
+  RECEIPT
+  BANK
+  DOCUMENT
+  GLOBE
+}

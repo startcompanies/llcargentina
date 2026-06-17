@@ -1,0 +1,237 @@
+/* ═══════════════════════════════════════
+   404 PAGE
+   ═══════════════════════════════════════ */
+
+.page {
+  position: relative;
+  min-height: calc(100dvh - var(--nav-h) - 300px);
+  background: linear-gradient(160deg, #000e1a 0%, #001627 55%, #001f35 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 80px 24px 100px;
+}
+
+/* ── Background effects ── */
+
+.glow1 {
+  position: absolute;
+  top: -10%;
+  left: -15%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(0, 106, 254, 0.18) 0%, transparent 65%);
+  pointer-events: none;
+  filter: blur(20px);
+}
+
+.glow2 {
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(1, 201, 226, 0.12) 0%, transparent 65%);
+  pointer-events: none;
+  filter: blur(20px);
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(1, 201, 226, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* ── Layout ── */
+
+.main {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+  max-width: 660px;
+  width: 100%;
+}
+
+/* ── Giant 404 with glitch ── */
+
+.codeWrap {
+  position: relative;
+  line-height: 1;
+  margin-bottom: -16px;
+  user-select: none;
+}
+
+.codeText {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(120px, 22vw, 220px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, rgba(1, 201, 226, 0.15) 0%, rgba(0, 106, 254, 0.08) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+/* Glitch layers */
+.codeText::before,
+.codeText::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.codeText::before {
+  background: linear-gradient(135deg, #01C9E2, #006AFE);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+  transform: translateX(var(--gx, 0px));
+  opacity: 0.7;
+  animation: glitch-top 3.5s steps(1) infinite;
+}
+
+.codeText::after {
+  background: linear-gradient(135deg, #F5C518, #ff9f00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%);
+  transform: translateX(calc(var(--gx, 0px) * -1.4));
+  opacity: 0.5;
+  animation: glitch-bot 4.2s steps(1) infinite;
+}
+
+@keyframes glitch-top {
+  0%, 92%, 100% { opacity: 0; }
+  93%, 95% { opacity: 0.7; }
+  94%, 96% { opacity: 0; }
+  97%, 99% { opacity: 0.7; }
+}
+
+@keyframes glitch-bot {
+  0%, 88%, 100% { opacity: 0; }
+  89%, 91% { opacity: 0.5; }
+  90%, 92% { opacity: 0; }
+  95%, 97% { opacity: 0.5; }
+}
+
+/* ── Content ── */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 16px;
+  border-radius: 50px;
+  background: rgba(1, 201, 226, 0.08);
+  border: 1px solid rgba(1, 201, 226, 0.22);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #01C9E2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.badge svg {
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.titleGrad {
+  background: linear-gradient(135deg, #01C9E2 0%, #006AFE 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sub {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.52);
+  line-height: 1.75;
+  max-width: 480px;
+}
+
+/* ── Actions ── */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+/* ── Quick links ── */
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 0;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(1, 201, 226, 0.1);
+  width: 100%;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.link:hover {
+  color: var(--white);
+  background: rgba(1, 201, 226, 0.07);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .actions a {
+    width: 100%;
+    justify-content: center;
+  }
+}

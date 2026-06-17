@@ -1,0 +1,108 @@
+.layout {
+  display: grid;
+  gap: 16px;
+}
+
+.existing {
+  display: grid;
+  gap: 14px;
+}
+
+.sectionHeader {
+  display: grid;
+  gap: 6px;
+}
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #72d8ff;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.12rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.card,
+.empty {
+  display: grid;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(5, 18, 31, 0.68);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  padding: 16px;
+}
+
+.empty {
+  color: rgba(247, 251, 255, 0.72);
+}
+
+.cardTitle {
+  margin: 0 0 4px;
+  font-size: 0.98rem;
+}
+
+.cardDescription {
+  margin: 0;
+  color: rgba(247, 251, 255, 0.66);
+  line-height: 1.45;
+  font-size: 0.86rem;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field span {
+  color: rgba(247, 251, 255, 0.78);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #f8fbff;
+  font: inherit;
+  padding: 0.72rem 0.82rem;
+  box-sizing: border-box;
+  font-size: 0.92rem;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 88px;
+}
+
+.submitButton {
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #01c9e2, #58e6ff);
+  color: #002033;
+  font: inherit;
+  font-weight: 700;
+  padding: 0.68rem 0.92rem;
+  cursor: pointer;
+  font-size: 0.84rem;
+}
+
+@media (max-width: 920px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

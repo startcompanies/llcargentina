@@ -1,0 +1,56 @@
+{
+  "name": "llcargentina",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:seed-admin": "tsx scripts/seed-blog-admin.ts",
+    "db:seed-test-posts": "tsx scripts/seed-test-posts.ts",
+    "export:blog-json": "tsx scripts/export-blog-posts.ts",
+    "normalize:blog-posts": "tsx scripts/normalize-blog-posts.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1038.0",
+    "@prisma/client": "^6.16.0",
+    "@tiptap/extension-image": "^3.21.0",
+    "@tiptap/extension-link": "^3.21.0",
+    "@tiptap/extension-placeholder": "^3.21.0",
+    "@tiptap/react": "^3.21.0",
+    "@tiptap/starter-kit": "^3.21.0",
+    "bcryptjs": "^3.0.3",
+    "cheerio": "^1.1.2",
+    "fast-xml-parser": "^5.5.9",
+    "gsap": "^3.14.2",
+    "next": "^16.0.0",
+    "next-auth": "^4.24.13",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "sanitize-html": "^2.17.2",
+    "three": "^0.183.2",
+    "zod": "^4.3.6"
+  },
+  "browserslist": [
+    "chrome >= 90",
+    "firefox >= 90",
+    "safari >= 14",
+    "edge >= 90"
+  ],
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@types/sanitize-html": "^2.16.1",
+    "@types/three": "^0.183.1",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.0.0",
+    "prisma": "^6.16.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

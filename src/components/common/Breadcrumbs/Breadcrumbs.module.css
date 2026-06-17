@@ -1,0 +1,76 @@
+.nav {
+  padding: 12px 0;
+  background: #021d3b;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.82rem;
+  color: #8a9ab5;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.separator {
+  margin: 0 8px;
+  color: #b0bdd0;
+  font-size: 0.72rem;
+}
+
+.link {
+  color: #8a9ab5;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: #01c9e2;
+  text-decoration: none;
+}
+
+.current {
+  color: #5a6a7c;
+  font-weight: 600;
+  max-width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Inline variant for dark backgrounds (e.g. Precios hero) */
+.inlineDark {
+  background: #0a0f16;
+  padding: 14px 0;
+  border-top: 1px solid rgba(1, 201, 226, 0.06);
+  border-bottom: 1px solid rgba(1, 201, 226, 0.06);
+}
+
+.inlineDark .list {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.78rem;
+}
+
+.inlineDark .separator {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.inlineDark .link {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.inlineDark .link:hover {
+  color: #01c9e2;
+  text-decoration: none;
+}
+
+.inlineDark .current {
+  color: rgba(255, 255, 255, 0.6);
+}

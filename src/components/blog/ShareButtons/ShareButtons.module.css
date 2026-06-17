@@ -1,0 +1,53 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.label {
+  color: var(--text-mid);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  color: var(--white);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  font-family: var(--font-body);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.88;
+}
+
+.whatsapp {
+  background: #25d366;
+}
+
+.linkedin {
+  background: #0077b5;
+}
+
+.facebook {
+  background: #1877f2;
+}
+
+.copy {
+  background: var(--text-dark);
+}
