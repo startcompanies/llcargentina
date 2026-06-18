@@ -4,6 +4,7 @@ import sanitizeHtml from 'sanitize-html';
 import { z } from 'zod';
 import { normalizeImportedImageHtml, normalizeImportedImageUrl } from '@/lib/blog-image-migration';
 import { escapeHtml, estimateReadingTimeFromHtml, renderPostSectionsHtml, sanitizePostHtml } from '@/lib/blog-html';
+import { normalizeBlogHref } from '@/lib/blog-routes';
 import { getDb } from '@/lib/db';
 import { slugify } from '@/lib/slug';
 
@@ -108,7 +109,7 @@ function normalizeImportedHtml(value: string) {
     const href = $(element).attr('href');
 
     if (href) {
-      $(element).attr('href', normalizeStartCompaniesUrl(href) || href);
+      $(element).attr('href', normalizeBlogHref(normalizeStartCompaniesUrl(href)) || href);
     }
   });
 

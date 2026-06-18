@@ -69,6 +69,7 @@ export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('ALL');
   const [isImporting, setIsImporting] = useState(false);
   const [isRepairingImages, setIsRepairingImages] = useState(false);
+  const [isRepairingLinks, setIsRepairingLinks] = useState(false);
   const [importStatus, setImportStatus] = useState<string | null>(null);
   const deferredQuery = useDeferredValue(query);
 
@@ -171,6 +172,29 @@ export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
     }
   }
 
+  async function handleRepairLinks() {
+    setIsRepairingLinks(true);
+    setImportStatus(null);
+
+    try {
+      const response = await fetch('/api/blog-admin/posts/repair-links', {
+        method: 'POST'
+      });
+      const payload = await response.json();
+
+      if (!response.ok) {
+        throw new Error(payload.error || 'No pudimos reparar los links.');
+      }
+
+      setImportStatus(`Links reparados: ${payload.sectionsUpdated} secciones actualizadas.`);
+      router.refresh();
+    } catch (error) {
+      setImportStatus(error instanceof Error ? error.message : 'No pudimos reparar los links.');
+    } finally {
+      setIsRepairingLinks(false);
+    }
+  }
+
   return (
     <div className={styles.layout}>
       <div className={styles.topbar}>
@@ -207,6 +231,16 @@ export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
             }}
           >
             {isRepairingImages ? 'Reparando...' : 'Reparar imágenes'}
+          </button>
+          <button
+            type="button"
+            className={styles.repairButton}
+            disabled={isRepairingLinks}
+            onClick={() => {
+              void handleRepairLinks();
+            }}
+          >
+            {isRepairingLinks ? 'Reparando...' : 'Reparar links'}
           </button>
           <Link href="/api/blog-admin/posts/export" className={styles.exportButton} prefetch={false}>
             Exportar JSON

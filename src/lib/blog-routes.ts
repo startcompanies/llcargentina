@@ -20,9 +20,15 @@ function normalizePathname(pathname: string) {
 }
 
 function normalizeBlogPath(pathname: string) {
-  return /^\/blog\/blog-/.test(pathname)
-    ? pathname.replace('/blog/blog-', '/blog/')
-    : pathname;
+  if (pathname.startsWith('/blog/noticias/')) {
+    return pathname.replace('/blog/noticias/', '/blog/');
+  }
+
+  if (/^\/blog\/blog-/.test(pathname)) {
+    return pathname.replace('/blog/blog-', '/blog/');
+  }
+
+  return pathname;
 }
 
 export function getBlogPostPath(slug: string) {
