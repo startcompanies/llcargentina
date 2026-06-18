@@ -3,7 +3,8 @@
 import { PostStatus } from '@prisma/client';
 import Image, { type ImageLoaderProps } from 'next/image';
 import Link from 'next/link';
-import { useDeferredValue, useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useDeferredValue, useMemo, useRef, useState } from 'react';
 import { updatePostStatusAction } from '@/app/blog-admin/actions';
 import type { BlogAdminPostSummary } from '@/lib/blog-admin-types';
 import { getBlogPostPath } from '@/lib/blog-routes';
@@ -62,8 +63,12 @@ function thumbnailLoader({ src }: ImageLoaderProps) {
 }
 
 export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
+  const router = useRouter();
+  const importInputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('ALL');
+  const [isImporting, setIsImporting] = useState(false);
+  const [importStatus, setImportStatus] = useState<string | null>(null);
   const deferredQuery = useDeferredValue(query);
 
   const metrics = useMemo(
@@ -102,6 +107,44 @@ export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
     });
   }, [deferredQuery, posts, statusFilter]);
 
+  async function handleImportFile(file: File | undefined) {
+    if (!file) {
+      return;
+    }
+
+    setIsImporting(true);
+    setImportStatus(null);
+
+    const formData = new FormData();
+    formData.set('file', file);
+
+    try {
+      const response = await fetch('/api/blog-admin/posts/import', {
+        method: 'POST',
+        body: formData
+      });
+      const payload = await response.json();
+
+      if (!response.ok) {
+        throw new Error(payload.error || 'No pudimos importar el archivo.');
+      }
+
+      const details = payload.skipped
+        ? ` ${payload.skipped} salteado${payload.skipped === 1 ? '' : 's'}.`
+        : '';
+      setImportStatus(`Importados: ${payload.created} nuevos, ${payload.updated} actualizados.${details}`);
+      router.refresh();
+    } catch (error) {
+      setImportStatus(error instanceof Error ? error.message : 'No pudimos importar el archivo.');
+    } finally {
+      setIsImporting(false);
+
+      if (importInputRef.current) {
+        importInputRef.current.value = '';
+      }
+    }
+  }
+
   return (
     <div className={styles.layout}>
       <div className={styles.topbar}>
@@ -112,6 +155,23 @@ export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
         </div>
 
         <div className={styles.topbarActions}>
+          <input
+            ref={importInputRef}
+            className={styles.importInput}
+            type="file"
+            accept="application/json,.json"
+            onChange={(event) => {
+              void handleImportFile(event.target.files?.[0]);
+            }}
+          />
+          <button
+            type="button"
+            className={styles.importButton}
+            disabled={isImporting}
+            onClick={() => importInputRef.current?.click()}
+          >
+            {isImporting ? 'Importando...' : 'Importar JSON'}
+          </button>
           <Link href="/api/blog-admin/posts/export" className={styles.exportButton} prefetch={false}>
             Exportar JSON
           </Link>
@@ -120,6 +180,8 @@ export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
           </Link>
         </div>
       </div>
+
+      {importStatus ? <div className={styles.importStatus}>{importStatus}</div> : null}
 
       <div className={styles.metricsGrid}>
         <article className={styles.metricCard}>
