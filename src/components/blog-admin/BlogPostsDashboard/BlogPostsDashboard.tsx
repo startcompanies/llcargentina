@@ -68,6 +68,7 @@ export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
   const [query, setQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('ALL');
   const [isImporting, setIsImporting] = useState(false);
+  const [isRepairingImages, setIsRepairingImages] = useState(false);
   const [importStatus, setImportStatus] = useState<string | null>(null);
   const deferredQuery = useDeferredValue(query);
 
@@ -145,6 +146,31 @@ export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
     }
   }
 
+  async function handleRepairImages() {
+    setIsRepairingImages(true);
+    setImportStatus(null);
+
+    try {
+      const response = await fetch('/api/blog-admin/posts/repair-images', {
+        method: 'POST'
+      });
+      const payload = await response.json();
+
+      if (!response.ok) {
+        throw new Error(payload.error || 'No pudimos reparar las imágenes.');
+      }
+
+      setImportStatus(
+        `Imágenes reparadas: ${payload.mediaAssetsUpdated} assets y ${payload.sectionsUpdated} secciones actualizadas.`
+      );
+      router.refresh();
+    } catch (error) {
+      setImportStatus(error instanceof Error ? error.message : 'No pudimos reparar las imágenes.');
+    } finally {
+      setIsRepairingImages(false);
+    }
+  }
+
   return (
     <div className={styles.layout}>
       <div className={styles.topbar}>
@@ -171,6 +197,16 @@ export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
             onClick={() => importInputRef.current?.click()}
           >
             {isImporting ? 'Importando...' : 'Importar JSON'}
+          </button>
+          <button
+            type="button"
+            className={styles.repairButton}
+            disabled={isRepairingImages}
+            onClick={() => {
+              void handleRepairImages();
+            }}
+          >
+            {isRepairingImages ? 'Reparando...' : 'Reparar imágenes'}
           </button>
           <Link href="/api/blog-admin/posts/export" className={styles.exportButton} prefetch={false}>
             Exportar JSON

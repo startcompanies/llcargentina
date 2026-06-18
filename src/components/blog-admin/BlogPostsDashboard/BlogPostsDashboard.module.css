@@ -42,6 +42,7 @@
 .createButton,
 .exportButton,
 .importButton,
+.repairButton,
 .primaryAction,
 .secondaryAction,
 .archiveButton,
@@ -61,6 +62,7 @@
 
 .createButton:hover,
 .importButton:hover,
+.repairButton:hover,
 .primaryAction:hover,
 .secondaryAction:hover,
 .archiveButton:hover,
@@ -101,6 +103,22 @@
 }
 
 .importButton:disabled {
+  cursor: wait;
+  opacity: 0.62;
+  transform: none;
+}
+
+.repairButton {
+  padding: 0.64rem 0.88rem;
+  font-weight: 700;
+  border: 1px solid rgba(245, 197, 24, 0.24);
+  background: rgba(245, 197, 24, 0.1);
+  color: #fff4be;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.repairButton:disabled {
   cursor: wait;
   opacity: 0.62;
   transform: none;

@@ -24,6 +24,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'media.llcargentina.us',
       },
+      {
+        protocol: 'https',
+        hostname: 'startcompanies.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.startcompanies.io',
+      },
     ],
   },
   async redirects() {

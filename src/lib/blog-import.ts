@@ -2,6 +2,7 @@ import { CategoryIcon, Prisma, PostSectionType, PostStatus } from '@prisma/clien
 import { load } from 'cheerio';
 import sanitizeHtml from 'sanitize-html';
 import { z } from 'zod';
+import { normalizeImportedImageHtml, normalizeImportedImageUrl } from '@/lib/blog-image-migration';
 import { escapeHtml, estimateReadingTimeFromHtml, renderPostSectionsHtml, sanitizePostHtml } from '@/lib/blog-html';
 import { getDb } from '@/lib/db';
 import { slugify } from '@/lib/slug';
@@ -120,7 +121,7 @@ function normalizeImportedHtml(value: string) {
       }
     });
 
-  return $.root().html() || '';
+  return normalizeImportedImageHtml($.root().html() || '');
 }
 
 function parsePublishedAt(value: string | undefined) {
@@ -155,7 +156,7 @@ async function resolveImportedMediaAsset(
   url: string | undefined,
   alt: string | undefined
 ) {
-  const normalizedUrl = url?.trim();
+  const normalizedUrl = normalizeImportedImageUrl(url);
 
   if (!normalizedUrl) {
     return null;
