@@ -2,8 +2,12 @@ export function isDatabaseConfigured() {
   return Boolean(process.env.DATABASE_URL?.trim());
 }
 
+export function getAuthSecret() {
+  return process.env.NEXTAUTH_SECRET?.trim() || process.env.AUTH_SECRET?.trim() || '';
+}
+
 export function isBlogAdminConfigured() {
-  return isDatabaseConfigured() && Boolean(process.env.NEXTAUTH_SECRET?.trim());
+  return isDatabaseConfigured();
 }
 
 export function getAppUrl() {

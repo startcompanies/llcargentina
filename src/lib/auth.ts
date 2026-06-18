@@ -3,11 +3,15 @@ import type { NextAuthOptions } from 'next-auth';
 import { cookies } from 'next/headers';
 import { decode } from 'next-auth/jwt';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { getSeedAdminCredentials, isBlogAdminConfigured } from '@/lib/app-config';
+import { getAuthSecret, getSeedAdminCredentials, isBlogAdminConfigured } from '@/lib/app-config';
 import { getDb } from '@/lib/db';
 
+function logAuthWarning(message: string, metadata?: Record<string, string | boolean>) {
+  console.warn('[blog-admin-auth]', message, metadata ?? {});
+}
+
 export const authOptions: NextAuthOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: getAuthSecret(),
   useSecureCookies: false,
   session: {
     strategy: 'jwt'
@@ -23,7 +27,13 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials) {
-        if (!isBlogAdminConfigured() || !credentials?.email || !credentials.password) {
+        if (!isBlogAdminConfigured()) {
+          logAuthWarning('database_not_configured');
+          return null;
+        }
+
+        if (!credentials?.email || !credentials.password) {
+          logAuthWarning('missing_credentials');
           return null;
         }
 
@@ -31,40 +41,66 @@ export const authOptions: NextAuthOptions = {
         const email = credentials.email.toLowerCase().trim();
         const seedCredentials = getSeedAdminCredentials();
         const seedEmail = seedCredentials.email.toLowerCase().trim();
+        const hasSeedCredentials = Boolean(seedEmail && seedCredentials.password);
         const matchesSeedCredentials = Boolean(
-          seedEmail &&
-            seedCredentials.password &&
+          hasSeedCredentials &&
             email === seedEmail &&
             credentials.password === seedCredentials.password
         );
 
-        const user = await db.adminUser.findUnique({
-          where: {
-            email
-          }
-        });
+        let user;
+
+        try {
+          user = await db.adminUser.findUnique({
+            where: {
+              email
+            }
+          });
+        } catch (error) {
+          logAuthWarning('database_error_find_user', {
+            email,
+            message: error instanceof Error ? error.message : 'unknown_error'
+          });
+          return null;
+        }
 
         const isValid = user ? await compare(credentials.password, user.passwordHash) : false;
 
         if (!isValid) {
           if (!matchesSeedCredentials) {
+            logAuthWarning('invalid_credentials', {
+              email,
+              hasAdminUser: Boolean(user),
+              hasSeedCredentials,
+              seedEmailMatches: Boolean(seedEmail && email === seedEmail)
+            });
             return null;
           }
 
           const passwordHash = await hash(seedCredentials.password, 12);
-          const syncedUser = await db.adminUser.upsert({
-            where: {
-              email
-            },
-            update: {
-              passwordHash
-            },
-            create: {
+          let syncedUser;
+
+          try {
+            syncedUser = await db.adminUser.upsert({
+              where: {
+                email
+              },
+              update: {
+                passwordHash
+              },
+              create: {
+                email,
+                name: 'Blog Admin',
+                passwordHash
+              }
+            });
+          } catch (error) {
+            logAuthWarning('database_error_sync_admin', {
               email,
-              name: 'Blog Admin',
-              passwordHash
-            }
-          });
+              message: error instanceof Error ? error.message : 'unknown_error'
+            });
+            return null;
+          }
 
           return {
             id: syncedUser.id,
@@ -118,9 +154,10 @@ type AdminSession = {
 };
 
 export async function getAdminSession(): Promise<AdminSession | null> {
-  const secret = process.env.NEXTAUTH_SECRET?.trim();
+  const secret = getAuthSecret();
 
   if (!secret) {
+    logAuthWarning('missing_auth_secret');
     return null;
   }
 
