@@ -14,7 +14,7 @@ type BlogAdminNewPostPageProps = {
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Nueva noticia - Blog Admin'
+  title: 'Nuevo post - Blog Admin'
 };
 
 export default async function BlogAdminNewPostPage({ searchParams }: BlogAdminNewPostPageProps) {
@@ -29,7 +29,7 @@ export default async function BlogAdminNewPostPage({ searchParams }: BlogAdminNe
   return (
     <AdminShell
       currentPath="/blog-admin/posts"
-      title="Nueva noticia"
+      title="Nuevo post"
       description="Creá un artículo nuevo con rich text, CTAs curados, metadata SEO y assets propios."
       notice={params.error ? { tone: 'error', message: params.error } : undefined}
     >
@@ -39,7 +39,7 @@ export default async function BlogAdminNewPostPage({ searchParams }: BlogAdminNe
         categories={categories}
         assets={assets}
         redirectTo="/blog-admin/posts/new"
-        submitLabel="Crear noticia"
+        submitLabel="Crear post"
       />
     </AdminShell>
   );

@@ -22,21 +22,21 @@ export function SidebarCta({ locale }: SidebarCtaProps) {
     <div className={styles.card}>
       <div className={styles.content}>
         <p className={styles.title}>
-          {en ? 'Open your LLC' : 'Abre tu LLC'}
+          {en ? 'Open your LLC' : 'Abrí tu LLC'}
         </p>
-        <p className={styles.highlight}>{en ? 'At the best price' : 'Al mejor precio'}</p>
+        <p className={styles.highlight}>{en ? 'With clear pricing' : 'Con precio claro'}</p>
 
         <ul className={styles.features}>
-          <li>{en ? 'Ready in under 10 days' : 'Lista bajo 10 dias'}</li>
+          <li>{en ? 'Ready in around 7 business days' : 'Lista en aprox. 7 días hábiles'}</li>
           <li>{en ? 'Starting at $599 USD' : 'A partir de $599 USD'}</li>
-          <li>{en ? 'Pay after delivery' : 'Pagas post entrega'}</li>
+          <li>{en ? 'Online process' : 'Proceso online'}</li>
         </ul>
 
         <Link
           href="https://wa.me/17869354213?text=Hola%2C%20quiero%20abrir%20mi%20LLC"
           className={styles.button}
         >
-          {en ? 'Book a free consultation' : 'Agenda una asesoría gratis'}
+          {en ? 'Book a free consultation' : 'Reservá una asesoría gratis'}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="5" y1="12" x2="19" y2="12" />
             <polyline points="12 5 19 12 12 19" />
@@ -57,7 +57,7 @@ export function SidebarCta({ locale }: SidebarCtaProps) {
             ))}
           </div>
           <div className={styles.proof}>
-            <span className={styles.proofLabel}>{en ? '+300 LLCs opened' : '+300 LLC abiertas'}</span>
+            <span className={styles.proofLabel}>{en ? '+300 LLCs opened' : '+300 LLCs abiertas'}</span>
             <span className={styles.stars}>
               {[1, 2, 3, 4, 5].map((s) => (
                 <svg key={s} width="13" height="13" viewBox="0 0 24 24" fill="#f59e0b">

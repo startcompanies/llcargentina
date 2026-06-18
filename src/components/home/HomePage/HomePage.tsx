@@ -74,7 +74,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                 </svg>
                 <span className={styles.heroTrustScore}>{locale === 'en' ? '4.9 Trustpilot' : '4.9 Trustpilot'}</span>
                 <span className={styles.heroTrustSep} aria-hidden="true" />
-                <span className={styles.heroTrustText}>{locale === 'en' ? '+1,400 entrepreneurs trust us' : '+1,400 emprendedores confían en nosotros'}</span>
+                <span className={styles.heroTrustText}>{locale === 'en' ? '+1,400 entrepreneurs chose us' : '+1,400 emprendedores ya nos eligieron'}</span>
               </div>
 
               <h1 className={styles.heroTitle} data-anim="heroTitle">
@@ -90,8 +90,8 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
 
               <p className={styles.heroSub} data-anim="heroSub">
                 {locale === 'en'
-                  ? <><strong>Expand your freedom.</strong> We form LLCs and open bank accounts for Latin Americans without residency. 100% online.</>
-                  : <><strong>Expande tu libertad.</strong> Abrimos LLCs y cuentas bancarias para latinoamericanos sin residencia. 100% online.</>
+                  ? <><strong>Build with more freedom.</strong> We create LLCs and support bank account setup for Latin Americans without residency. Fully online.</>
+                  : <><strong>Expandí tu libertad.</strong> Creamos LLCs y abrimos cuentas bancarias para latinoamericanos sin residencia. Todo online.</>
                 }
               </p>
 
@@ -103,18 +103,18 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   </svg>
                 </Link>
                 <Link href={consultationHref} className="btn btn-llamada btn-lg">
-                  {locale === 'en' ? 'Book free call' : 'Agendar llamada gratuita'}
+                  {locale === 'en' ? 'Book free call' : 'Reservar llamada gratuita'}
                 </Link>
               </div>
 
               <div className={styles.heroCounters} data-anim="heroCounters">
                 <div className={styles.heroCounter}>
                   <span className={styles.heroCounterNum} data-target="1400" data-suffix="+" data-prefix="">0</span>
-                  <span className={styles.heroCounterLabel}>{locale === 'en' ? 'Entrepreneurs' : 'Emprendedores'}</span>
+                  <span className={styles.heroCounterLabel}>{locale === 'en' ? 'Founders advised' : 'Fundadores asesorados'}</span>
                 </div>
                 <div className={styles.heroCounter}>
                   <span className={styles.heroCounterNum} data-target="1000" data-suffix="+" data-prefix="">0</span>
-                  <span className={styles.heroCounterLabel}>{locale === 'en' ? 'LLCs formed' : 'LLCs creadas'}</span>
+                  <span className={styles.heroCounterLabel}>{locale === 'en' ? 'LLCs opened' : 'LLCs abiertas'}</span>
                 </div>
                 <div className={styles.heroCounter}>
                   <span className={styles.heroCounterNum} data-target="4.9" data-suffix="★" data-prefix="">0</span>
@@ -132,7 +132,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z" />
                     </svg>
-                    {' '}{locale === 'en' ? 'Most chosen' : 'Más elegido'}
+                    {' '}{locale === 'en' ? 'Client favorite' : 'El más elegido'}
                   </span>
                 </div>
                 <div className={styles.heroCardPrice}>
@@ -143,19 +143,19 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  {' '}{locale === 'en' ? '3 months free platform trial' : '3 meses trial plataforma gratis'}
+                  {' '}{locale === 'en' ? '3 free months of platform access' : '3 meses gratis de plataforma'}
                 </div>
                 <div className={styles.heroCardFreeSub}>{locale === 'en' ? 'Then $25 USD/mo' : 'Luego $25 USD/mes'}</div>
                 <div className={styles.heroCardDiv} aria-hidden="true" />
                 <ul className={styles.heroCardFeatures}>
                   {(locale === 'en' ? [
                     'U.S. LLC (Single Member)',
-                    'Bank account included with your LLC',
+                    'Bank account support included',
                     'EIN included',
                     'R.A. + Tax address + Operating Agreement',
                   ] : [
                     'LLC en EE.UU. (Single Member)',
-                    'Cuenta bancaria incluida con tu LLC',
+                    'Acompañamiento bancario incluido',
                     'EIN incluido',
                     'R.A. + Dirección fiscal + Operating Agreement',
                   ]).map((feature) => (
@@ -172,13 +172,13 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                     </svg>
                     {' '}{locale === 'en' ? 'Digital platform:' : 'Plataforma digital:'}
                   </li>
-                  {(locale === 'en' ? ['AI Accounting', 'USD Invoicing', 'Legal library'] : ['Contabilidad con IA', 'Facturación en USD', 'Biblioteca legal']).map((sub) => (
+                  {(locale === 'en' ? ['AI Accounting', 'USD Invoicing', 'Legal library'] : ['Contabilidad IA', 'Facturación USD', 'Biblioteca legal']).map((sub) => (
                     <li key={sub} className={styles.hcfSub}>
                       <span className={styles.hcfDot} aria-hidden="true" />
                       {sub}
                     </li>
                   ))}
-                  {(locale === 'en' ? ['International tax advisory', '24/7 Support'] : ['Asesoría tributaria internacional', 'Soporte 24/7']).map((feature) => (
+                  {(locale === 'en' ? ['International tax guidance', '24/7 Support'] : ['Orientación tributaria internacional', 'Soporte 24/7']).map((feature) => (
                     <li key={feature} className={styles.hcfItem}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <polyline points="20 6 9 17 4 12" />
@@ -194,7 +194,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   {' '}{locale === 'en' ? 'in 7 business days' : 'en 7 días hábiles'}
                 </div>
                 <Link href={wizardHref} className={styles.heroCardCta}>
-                  {locale === 'en' ? 'Get started' : 'Comenzar ahora'}{' '}
+                  {locale === 'en' ? 'Get started' : 'Empezar ahora'}{' '}
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
                   </svg>
@@ -211,8 +211,8 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
         <div className={styles.serviciosBgGlow} aria-hidden="true" />
         <div className="container">
           <ScrollReveal className={styles.serviciosHeader}>
-            <h2 className={styles.serviciosTitle}>{locale === 'en' ? <>Everything you need to<br /><span className={styles.gradText}>operate in the U.S.</span></> : <>Todo lo que necesitás para<br /><span className={styles.gradText}>operar en EE.UU.</span></>}</h2>
-            <p className={styles.serviciosSub}>{locale === 'en' ? 'Certified Public Accountants and IRS Enrolled Agents. A dedicated human team for your company.' : 'Contadores Públicos y Enrolled Agents certificados ante el IRS. Un equipo humano dedicado a tu empresa.'}</p>
+            <h2 className={styles.serviciosTitle}>{locale === 'en' ? <>Everything your company needs to<br /><span className={styles.gradText}>operate from the U.S.</span></> : <>Todo lo necesario para<br /><span className={styles.gradText}>operar desde EE.UU.</span></>}</h2>
+            <p className={styles.serviciosSub}>{locale === 'en' ? 'Certified Public Accountants and IRS Enrolled Agents supporting each step of your company.' : 'Contadores Públicos y Enrolled Agents certificados ante el IRS, acompañando cada etapa de tu empresa.'}</p>
           </ScrollReveal>
           <ScrollReveal effect="fade-up" stagger={0.1} className={styles.serviciosGrid}>
             {/* 1 — Constitucion LLC */}
@@ -225,8 +225,8 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                 </svg>
               </div>
               <div className={styles.srvNum} aria-hidden="true">01</div>
-              <h3 className={styles.srvTitle}>{locale === 'en' ? 'LLC, Holdings & C-Corporation Formation' : 'Constitución de LLC, Holdings y C-Corporaciones'}</h3>
-              <p className={styles.srvDesc}>{locale === 'en' ? 'We form your company in any U.S. state. Simple or complex structures: LLCs, Holdings, and C-Corps for investors.' : 'Abrimos tu empresa en cualquier estado de EE.UU. Estructuras simples o complejas: LLC, Holdings y C-Corps para inversores.'}</p>
+              <h3 className={styles.srvTitle}>{locale === 'en' ? 'LLC, Holding & C-Corporation Setup' : 'Apertura de LLC, Holdings y C-Corporaciones'}</h3>
+              <p className={styles.srvDesc}>{locale === 'en' ? 'We set up your company in the U.S. with the structure your business actually needs: LLC, Holding, or C-Corp.' : 'Creamos tu empresa en EE.UU. con la estructura que tu operación necesita: LLC, Holding o C-Corp.'}</p>
               <div className={styles.srvTag}>LLC · Corp · Holdings</div>
             </article>
             {/* 2 — Declaracion Impuestos */}
@@ -239,8 +239,8 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                 </svg>
               </div>
               <div className={styles.srvNum} aria-hidden="true">02</div>
-              <h3 className={styles.srvTitle}>{locale === 'en' ? 'Tax Filing — Residents & Non-Residents' : 'Declaración de Impuestos — Residentes y No Residentes'}</h3>
-              <p className={styles.srvDesc}>{locale === 'en' ? 'Form 5472, 1120, 1065 and IRS compliance. No more fines or tax surprises. Certified Enrolled Agents.' : 'Form 5472, 1120, 1065 y cumplimiento IRS. Nunca más multas ni sorpresas fiscales. Enrolled Agents certificados.'}</p>
+              <h3 className={styles.srvTitle}>{locale === 'en' ? 'Tax Filing for Residents & Non-Residents' : 'Impuestos para residentes y no residentes'}</h3>
+              <p className={styles.srvDesc}>{locale === 'en' ? 'Forms 5472, 1120, 1065 and IRS compliance, handled by certified Enrolled Agents.' : 'Formularios 5472, 1120, 1065 y cumplimiento IRS, gestionados por Enrolled Agents certificados.'}</p>
               <div className={styles.srvTag}>IRS · Form 1120 · 5472 · 1065</div>
             </article>
             {/* 3 — Apertura Bancaria */}
@@ -253,8 +253,8 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                 </svg>
               </div>
               <div className={styles.srvNum} aria-hidden="true">03</div>
-              <h3 className={styles.srvTitle}>{locale === 'en' ? 'Bank Account Opening' : 'Apertura Bancaria'}</h3>
-              <p className={styles.srvDesc}>{locale === 'en' ? 'Official partners of Mercury, Relay, Lili and Chase. Guaranteed U.S. bank account, 100% online, no visit to the U.S.' : 'Partners oficiales de Mercury, Relay, Lili y Chase. Cuenta americana garantizada, 100% online, sin visita a EE.UU.'}</p>
+              <h3 className={styles.srvTitle}>{locale === 'en' ? 'U.S. Bank Account Setup' : 'Apertura de cuenta bancaria'}</h3>
+              <p className={styles.srvDesc}>{locale === 'en' ? 'Mercury, Relay, Lili and Chase options, with a guided online process for non-resident founders.' : 'Opciones con Mercury, Relay, Lili y Chase, con un proceso guiado para founders no residentes.'}</p>
               <div className={styles.srvTag}>Mercury · Relay · Chase</div>
             </article>
             {/* 4 — Solicitud ITIN */}
@@ -268,7 +268,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
               </div>
               <div className={styles.srvNum} aria-hidden="true">04</div>
               <h3 className={styles.srvTitle}>{locale === 'en' ? 'ITIN Application' : 'Solicitud de ITIN'}</h3>
-              <p className={styles.srvDesc}>{locale === 'en' ? 'We obtain your Individual Taxpayer Identification Number from the IRS to operate legally in the U.S. without an SSN.' : 'Obtenemos tu Individual Taxpayer Identification Number ante el IRS para operar legalmente en EE.UU. sin SSN.'}</p>
+              <p className={styles.srvDesc}>{locale === 'en' ? 'We request your Individual Taxpayer Identification Number with the IRS so you can operate without an SSN.' : 'Solicitamos tu Individual Taxpayer Identification Number ante el IRS para operar sin SSN.'}</p>
               <div className={styles.srvTag}>ITIN · IRS · {locale === 'en' ? 'No SSN' : 'Sin SSN'}</div>
             </article>
             {/* 5 — Plataforma para operar tu LLC */}
@@ -292,8 +292,8 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   <h3 className={styles.srvTitle}>{locale === 'en' ? 'Platform to operate your LLC' : 'Plataforma para operar tu LLC'}</h3>
                   <p className={styles.srvDesc}>
                     {locale === 'en'
-                      ? <>{'What nobody else gives you. Manage your company from one panel and '}<span className={styles.srvHighlight}>avoid deadlines, fines, and bank closures</span>.</>
-                      : <>{'Lo que nadie más te da. Manejá tu empresa desde un solo panel y '}<span className={styles.srvHighlight}>evitá vencimientos, multas y cierre de bancos</span>.</>}
+                      ? <>{'Manage your company from one place and '}<span className={styles.srvHighlight}>stay ahead of deadlines, fines, and bank issues</span>.</>
+                      : <>{'Gestioná tu empresa desde un solo panel y '}<span className={styles.srvHighlight}>anticipá vencimientos, multas y problemas bancarios</span>.</>}
                   </p>
                   <div className={styles.srvCard5Pills}>
                     {(locale === 'en'
@@ -414,8 +414,8 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
             </article>
           </ScrollReveal>
           <ScrollReveal className={styles.serviciosCta}>
-            <Link href={wizardHref} className="btn btn-comenzar btn-lg">{locale === 'en' ? 'Start process' : 'Comenzar proceso'} <ArrowIcon /></Link>
-            <Link href={consultationHref} className="btn btn-llamada btn-lg">{locale === 'en' ? 'Book free call' : 'Agendar llamada gratuita'}</Link>
+            <Link href={wizardHref} className="btn btn-comenzar btn-lg">{locale === 'en' ? 'Start process' : 'Iniciar proceso'} <ArrowIcon /></Link>
+            <Link href={consultationHref} className="btn btn-llamada btn-lg">{locale === 'en' ? 'Book free call' : 'Reservar llamada gratuita'}</Link>
           </ScrollReveal>
         </div>
       </section>
@@ -423,7 +423,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
       {/* ── PARTNERS MARQUEE ── */}
       <section className={styles.partners} id="partners">
         <div className={`container ${styles.partnersHeader}`}>
-          <h2 className={styles.partnersTitle}>{locale === 'en' ? 'We open accounts at the best banks and platforms in the world' : 'Abrimos cuentas en los mejores bancos y plataformas del mundo'}</h2>
+          <h2 className={styles.partnersTitle}>{locale === 'en' ? 'We connect your company with leading banks and platforms' : 'Conectamos tu empresa con bancos y plataformas líderes'}</h2>
         </div>
         <div className={styles.marqueeOuter}>
           <div className={styles.marqueeFadeL} aria-hidden="true" />
@@ -477,7 +477,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
       <section className={styles.llcBenefits} id="por-que-llc">
         <div className="container">
           <ScrollReveal className={styles.llcHeader}>
-            <h2 className={styles.llcTitle}>{locale === 'en' ? 'Key benefits of having a U.S. LLC' : 'Beneficios clave de tener una LLC en EE.UU.'}</h2>
+            <h2 className={styles.llcTitle}>{locale === 'en' ? 'Why entrepreneurs choose a U.S. LLC' : 'Por qué los emprendedores eligen una LLC en EE.UU.'}</h2>
           </ScrollReveal>
           <ScrollReveal effect="scale-up" stagger={0.1} className={styles.llcGrid}>
             {[
@@ -489,7 +489,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   </svg>
                 ),
                 title: locale === 'en' ? 'Global access' : 'Acceso global',
-                text: locale === 'en' ? 'Sell worldwide. Collect via Stripe, international transfers, and global platforms without limits.' : 'Vendés a todo el mundo. Cobrás por Stripe, transferencias internacionales y plataformas globales sin límites.'
+                text: locale === 'en' ? 'Sell globally and collect through Stripe, transfers, and international platforms with a stronger setup.' : 'Vendé globalmente y cobrá por Stripe, transferencias y plataformas internacionales con una estructura más sólida.'
               },
               {
                 icon: (
@@ -498,7 +498,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   </svg>
                 ),
                 title: locale === 'en' ? 'Asset protection' : 'Protección patrimonial',
-                text: locale === 'en' ? 'Your business separate from you personally. Protect your identity and personal assets from any legal contingency.' : 'Tu negocio separado de tu persona. Protegé tu identidad y patrimonio personal ante cualquier contingencia legal.'
+                text: locale === 'en' ? 'Separate your business from your personal profile and reduce exposure with limited liability.' : 'Separá tu negocio de tu persona y reducí exposición con responsabilidad limitada.'
               },
               {
                 icon: (
@@ -507,7 +507,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   </svg>
                 ),
                 title: locale === 'en' ? 'International credibility' : 'Credibilidad internacional',
-                text: locale === 'en' ? 'Invoice global clients with proper contracts and a solid legal structure.' : 'Facturá a clientes globales con contratos en regla y estructura legal sólida.'
+                text: locale === 'en' ? 'Invoice global clients with cleaner contracts and a recognized U.S. legal structure.' : 'Facturá a clientes globales con contratos más claros y una estructura legal reconocida.'
               },
               {
                 icon: (
@@ -516,7 +516,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   </svg>
                 ),
                 title: locale === 'en' ? 'Tax efficiency' : 'Eficiencia fiscal',
-                text: locale === 'en' ? 'Optimize your taxes as a non-resident. With the right structure, you can pay up to 0 taxes in the U.S., legally.' : 'Optimizá tus impuestos como no residente. Con la estructura correcta podés pagar hasta 0 impuestos en EE.UU., legalmente.'
+                text: locale === 'en' ? 'Structure your operation as a non-resident and understand when U.S. federal tax may not apply.' : 'Ordená tu operación como no residente y entendé cuándo puede no aplicar impuesto federal en EE.UU.'
               },
               {
                 icon: (
@@ -525,7 +525,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   </svg>
                 ),
                 title: locale === 'en' ? 'USD bank account' : 'Banco en USD',
-                text: locale === 'en' ? 'Mercury or Relay guaranteed. No restrictions or hidden fees. Operate in dollars like any American company.' : 'Mercury o Relay garantizados. Sin restricciones ni comisiones ocultas. Operá en dólares como cualquier empresa americana.'
+                text: locale === 'en' ? 'Operate in dollars with Mercury, Relay, or other banking options suited for U.S. companies.' : 'Operá en dólares con Mercury, Relay u otras opciones bancarias pensadas para empresas estadounidenses.'
               },
               {
                 icon: (
@@ -534,7 +534,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   </svg>
                 ),
                 title: locale === 'en' ? '100% online' : '100% online',
-                text: locale === 'en' ? 'No residency or travel required. From any country in Latin America, complete the process from your computer in 7 business days.' : 'Sin residencia ni viajes. Desde cualquier país de LATAM completás el proceso desde tu computadora en 7 días hábiles.'
+                text: locale === 'en' ? 'No residency or travel required. Complete the process from your computer, wherever you are in LATAM.' : 'Sin residencia ni viajes. Completá el proceso desde tu computadora, estés donde estés en LATAM.'
               }
             ].map((benefit, i) => (
               <div key={benefit.title} className={styles.llcCard}>
@@ -553,8 +553,8 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
       <section className={styles.proceso} id="proceso">
         <div className="container">
           <ScrollReveal className={styles.procesoHeader}>
-            <h2 className={styles.procesoTitle}>{locale === 'en' ? <>Your LLC ready in <span className={styles.gradText}>7 business days</span></> : <>Tu LLC lista en <span className={styles.gradText}>7 días hábiles</span></>}</h2>
-            <p className={styles.procesoSub}>{locale === 'en' ? 'No bureaucracy, no physical paperwork. Everything from your computer.' : 'Sin burocracia, sin papelería física. Todo desde tu computadora.'}</p>
+            <h2 className={styles.procesoTitle}>{locale === 'en' ? <>Your LLC moving in <span className={styles.gradText}>7 business days</span></> : <>Tu LLC en marcha en <span className={styles.gradText}>7 días hábiles</span></>}</h2>
+            <p className={styles.procesoSub}>{locale === 'en' ? 'A guided process with no in-person paperwork and no unnecessary friction.' : 'Un proceso guiado, sin papeles presenciales ni fricción innecesaria.'}</p>
           </ScrollReveal>
           <div className={styles.procesoLayout}>
             {/* LEFT: steps */}
@@ -566,8 +566,8 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                 {[
                   {
                     step: 1,
-                    title: locale === 'en' ? 'Complete the form' : 'Completás el formulario',
-                    text: locale === 'en' ? 'Enter your personal and business details. No apostilles or in-person procedures.' : 'Ingresás tus datos personales y los del negocio. Sin apostillas ni trámites presenciales.',
+                    title: locale === 'en' ? 'Submit your information' : 'Cargás tus datos',
+                    text: locale === 'en' ? 'Share your personal and business details through a simple online form.' : 'Compartís tus datos personales y los del negocio en un formulario online simple.',
                     icon: (
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" />
@@ -578,8 +578,8 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   },
                   {
                     step: 2,
-                    title: locale === 'en' ? 'Receive your login credentials' : 'Recibís tu usuario de login',
-                    text: locale === 'en' ? 'We create your account on our platform. You can track your LLC status in real time.' : 'Te creamos un usuario en nuestra plataforma. Podés seguir el estado de tu LLC en tiempo real.',
+                    title: locale === 'en' ? 'Access your dashboard' : 'Accedés a tu panel',
+                    text: locale === 'en' ? 'We create your platform account so you can follow each stage of the setup.' : 'Creamos tu usuario en la plataforma para que sigas cada etapa de la apertura.',
                     icon: (
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" />
@@ -589,8 +589,8 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   },
                   {
                     step: 3,
-                    title: locale === 'en' ? 'We open your bank account' : 'Abrimos tu cuenta bancaria',
-                    text: locale === 'en' ? 'We set up your account with Mercury or Relay. We verify everything without you having to leave your country.' : 'Gestionamos tu cuenta en Mercury o Relay. Verificamos todo sin que tengas que moverte de tu país.',
+                    title: locale === 'en' ? 'We guide the banking setup' : 'Guiamos la apertura bancaria',
+                    text: locale === 'en' ? 'We prepare the banking application and guide you through Mercury, Relay, or the best available option.' : 'Preparamos la solicitud bancaria y te guiamos con Mercury, Relay o la mejor opción disponible.',
                     icon: (
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
@@ -600,8 +600,8 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   },
                   {
                     step: 4,
-                    title: locale === 'en' ? 'LLC approved and documented' : 'LLC aprobada y documentada',
-                    text: locale === 'en' ? 'You receive the Articles of Organization, Operating Agreement, and EIN. Everything in your dashboard, instantly downloadable.' : 'Recibís los Artículos de organización, Operating Agreement y EIN. Todo en tu panel, descargable al instante.',
+                    title: locale === 'en' ? 'LLC approved with documents' : 'LLC aprobada con documentos',
+                    text: locale === 'en' ? 'You receive Articles of Organization, Operating Agreement, and EIN, available from your dashboard.' : 'Recibís Articles of Organization, Operating Agreement y EIN, disponibles desde tu panel.',
                     icon: (
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <rect x="2" y="5" width="20" height="14" rx="2" /><line x1="2" y1="10" x2="22" y2="10" />
@@ -612,7 +612,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   {
                     step: 5,
                     title: locale === 'en' ? 'Process complete' : 'Proceso finalizado',
-                    text: locale === 'en' ? 'Your U.S. company is ready. Access the full dashboard with accounting, invoices, and legal library. 3 months free.' : 'Tu empresa americana está lista. Accedés al panel completo con contabilidad, facturas y biblioteca legal. 3 meses gratis.',
+                    text: locale === 'en' ? 'Your U.S. company is ready to operate, with dashboard, accounting, invoices, and legal resources included.' : 'Tu empresa estadounidense queda lista para operar, con panel, contabilidad, facturas y recursos legales incluidos.',
                     icon: (
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <polyline points="20 6 9 17 4 12" />
@@ -678,13 +678,13 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  {' '}{locale === 'en' ? '100% online · No travel or physical presence' : '100% online · Sin viajes ni presencia física'}
+                  {' '}{locale === 'en' ? '100% online · No travel required' : '100% online · Sin viajes'}
                 </div>
                 <div className={styles.pscFooter}>
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
                   </svg>
-                  {' '}{locale === 'en' ? '7 days average total opening time' : '7 días tiempo promedio de apertura total'}
+                  {' '}{locale === 'en' ? '7-day average setup time' : '7 días promedio de apertura'}
                 </div>
               </div>
             </div>
@@ -692,7 +692,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
 
           {/* Panel features row */}
           <ScrollReveal className={styles.procesoPanel}>
-            <div className={styles.procesoPanelLabel}>{locale === 'en' ? 'Your dashboard includes' : 'Tu panel incluye'}</div>
+            <div className={styles.procesoPanelLabel}>{locale === 'en' ? 'Inside your dashboard' : 'Dentro de tu panel'}</div>
             <div className={styles.procesoPanelFeatures}>
               {[
                 { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>, label: locale === 'en' ? 'AI Accounting' : 'Contabilidad con IA' },
@@ -700,7 +700,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                 { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /></svg>, label: locale === 'en' ? 'Legal library' : 'Biblioteca legal' },
                 { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>, label: locale === 'en' ? 'Compliance reminders' : 'Recordatorios de cumplimiento' },
                 { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>, label: locale === 'en' ? '24/7 Support' : 'Soporte 24/7' },
-                { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7" /><rect x="1" y="5" width="15" height="14" rx="2" ry="2" /></svg>, label: locale === 'en' ? 'LLC educational videos' : 'Videos educativos LLC' },
+                { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7" /><rect x="1" y="5" width="15" height="14" rx="2" ry="2" /></svg>, label: locale === 'en' ? 'LLC video lessons' : 'Videos prácticos LLC' },
                 { icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>, label: locale === 'en' ? 'LLC Roadmap' : 'Roadmap de tu LLC' },
               ].map(({ icon, label }) => (
                 <div key={label} className={styles.ppfItem}>
@@ -713,12 +713,12 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
 
           <ScrollReveal className={styles.procesoCta}>
             <Link href={wizardHref} className="btn btn-comenzar btn-lg">
-              {locale === 'en' ? 'Get started' : 'Empezar ahora'}{' '}
+              {locale === 'en' ? 'Get started' : 'Iniciar ahora'}{' '}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
               </svg>
             </Link>
-            <Link href={consultationHref} className="btn btn-llamada btn-lg">{locale === 'en' ? 'Book free call' : 'Agendar llamada gratuita'}</Link>
+            <Link href={consultationHref} className="btn btn-llamada btn-lg">{locale === 'en' ? 'Book free call' : 'Reservar llamada gratuita'}</Link>
           </ScrollReveal>
         </div>
       </section>
@@ -727,8 +727,8 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
       <section className={styles.elegirnos} id="por-que-elegirnos">
         <div className="container">
           <ScrollReveal className={styles.elegirHeader}>
-            <h2 className={styles.elegirTitle}>{locale === 'en' ? 'Why choose us?' : '¿Por qué elegirnos?'}</h2>
-            <p className={styles.elegirSub}>{locale === 'en' ? 'Over 1,400 Latin American entrepreneurs chose LLC Argentina to establish and operate their company in the U.S. — and here\'s why.' : 'Más de 1,400 emprendedores de LATAM eligieron LLC Argentina para establecer y operar su empresa en EE.UU. — y acá está el por qué.'}</p>
+            <h2 className={styles.elegirTitle}>{locale === 'en' ? 'Why work with us?' : '¿Por qué trabajar con nosotros?'}</h2>
+            <p className={styles.elegirSub}>{locale === 'en' ? 'More than 1,400 Latin American entrepreneurs chose LLC Argentina to form, maintain, and operate their U.S. company.' : 'Más de 1,400 emprendedores de LATAM eligieron LLC Argentina para crear, mantener y operar su empresa en EE.UU.'}</p>
           </ScrollReveal>
         </div>
         {/* Stats block */}
@@ -737,7 +737,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
             <ScrollReveal className={styles.elegirStats}>
               <div className={styles.elegirStat}>
                 <span className={styles.elegirStatNum} data-target="1000" data-suffix="+">0</span>
-                <span className={styles.elegirStatLabel}>{locale === 'en' ? 'LLCs formed' : 'LLCs creadas'}</span>
+                <span className={styles.elegirStatLabel}>{locale === 'en' ? 'LLCs opened' : 'LLCs abiertas'}</span>
               </div>
               <div className={`${styles.elegirStatSep} ${styles.statHideMobile}`} aria-hidden="true" />
               <div className={`${styles.elegirStat} ${styles.statHideMobile}`}>
@@ -764,33 +764,33 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
               {/* Left copy */}
               <ScrollReveal className={styles.elegirPlatCopy}>
                 <span className={styles.elegirPlatLabel}>{locale === 'en' ? 'The platform' : 'La plataforma'}</span>
-                <h2 className={styles.elegirPlatTitle}>{locale === 'en' ? <>We don&apos;t just open your LLC,<br /><span className={styles.gradText}>we give you everything to operate</span></> : <>No solo abrimos tu LLC,<br /><span className={styles.gradText}>te damos todo para operar</span></>}</h2>
+                <h2 className={styles.elegirPlatTitle}>{locale === 'en' ? <>We don&apos;t stop at formation,<br /><span className={styles.gradText}>we help you operate</span></> : <>No nos quedamos en la apertura,<br /><span className={styles.gradText}>te ayudamos a operar</span></>}</h2>
                 <ScrollReveal effect="fade-up" stagger={0.08} className={styles.elegirFeatures}>
                   {[
                     {
                       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>,
-                      title: locale === 'en' ? 'LLC formed and documented' : 'LLC constituida y documentada',
-                      sub: locale === 'en' ? 'Articles of Organization, Operating Agreement, EIN included' : 'Artículos de organización, Operating Agreement, EIN incluido'
+                      title: locale === 'en' ? 'LLC formed with documents' : 'LLC abierta con documentación',
+                      sub: locale === 'en' ? 'Articles of Organization, Operating Agreement, and EIN included' : 'Articles of Organization, Operating Agreement y EIN incluidos'
                     },
                     {
                       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>,
-                      title: locale === 'en' ? 'Tax filing and compliance' : 'Impuestos y cumplimiento fiscal',
-                      sub: locale === 'en' ? 'Annual Report, IRS compliance, and deadline alerts' : 'Annual Report, IRS compliance y alertas de vencimiento'
+                      title: locale === 'en' ? 'Tax filings and compliance' : 'Impuestos y cumplimiento',
+                      sub: locale === 'en' ? 'Annual reports, IRS requirements, and deadline alerts' : 'Annual reports, obligaciones IRS y alertas de vencimiento'
                     },
                     {
                       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>,
-                      title: locale === 'en' ? 'Professional USD invoicing' : 'Facturación profesional en USD',
-                      sub: locale === 'en' ? 'Create, send, and manage invoices from the dashboard' : 'Creá, enviá y gestioná facturas desde el panel'
+                      title: locale === 'en' ? 'Professional invoicing in USD' : 'Facturación profesional en USD',
+                      sub: locale === 'en' ? 'Create, send, and track invoices from your dashboard' : 'Creá, enviá y seguí facturas desde tu panel'
                     },
                     {
                       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>,
-                      title: locale === 'en' ? 'AI Accounting — Auto P&L' : 'Contabilidad con IA — P&L automático',
-                      sub: locale === 'en' ? 'Profit and loss statement updated in real time' : 'Balance de ganancias y pérdidas actualizado en tiempo real'
+                      title: locale === 'en' ? 'AI Accounting and P&L' : 'Contabilidad IA y P&L',
+                      sub: locale === 'en' ? 'Profit and loss visibility updated from your operation' : 'Visibilidad de ganancias y pérdidas actualizada desde tu operación'
                     },
                     {
                       icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /></svg>,
-                      title: locale === 'en' ? 'Legal library, contracts & documents' : 'Biblioteca legal, contratos y documentos',
-                      sub: locale === 'en' ? 'Ready-to-sign contract templates, in English and Spanish' : 'Plantillas de contratos listos para firmar, en inglés y español'
+                      title: locale === 'en' ? 'Legal library and templates' : 'Biblioteca legal y plantillas',
+                      sub: locale === 'en' ? 'Contracts and documents prepared for everyday use' : 'Contratos y documentos preparados para el uso diario'
                     }
                   ].map(({ icon, title, sub }) => (
                     <div key={title} className={styles.elegirFeat}>
@@ -806,7 +806,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
-                  {locale === 'en' ? '3 months free · Then $25 USD/mo' : '3 meses gratis · Luego $25 USD/mes'}
+                  {locale === 'en' ? '3 months included · Then $25 USD/mo' : '3 meses incluidos · Luego $25 USD/mes'}
                 </div>
                 <div className={styles.elegirPlatActions}>
                   <Link href={locale === 'en' ? '/en#precios' : '/#precios'} className="btn btn-primary">
@@ -962,15 +962,15 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
       <section className={styles.preciosSec} id="precios">
         <div className="container">
           <ScrollReveal className={styles.preciosHeader}>
-            <h2 className={styles.preciosTitle}>{locale === 'en' ? <>Start from <span className={styles.gradText}>$599 USD</span></> : <>Empezá desde <span className={styles.gradText}>$599 USD</span></>}</h2>
-            <p className={styles.preciosSub}>{locale === 'en' ? 'No hidden costs. Premium Pack includes automatic 2-year renewal.' : 'Sin costos ocultos. Pack Premium incluye renovación automática 2 años.'}</p>
+            <h2 className={styles.preciosTitle}>{locale === 'en' ? <>Plans from <span className={styles.gradText}>$599 USD</span></> : <>Planes desde <span className={styles.gradText}>$599 USD</span></>}</h2>
+            <p className={styles.preciosSub}>{locale === 'en' ? 'Clear pricing, defined scope, and options for formation, banking, taxes, and renewals.' : 'Precios claros, alcance definido y opciones para apertura, banco, impuestos y renovaciones.'}</p>
           </ScrollReveal>
           <ScrollReveal effect="scale-up" stagger={0.12} className={styles.preciosGrid}>
             {/* Pack Emprendedor */}
             <div className={`${styles.precioCard} ${styles.precioCardPopular}`}>
               <div className={styles.precioPopularBadge}>
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" /></svg>
-                {locale === 'en' ? 'Most chosen' : 'Más elegido'}
+                {locale === 'en' ? 'Client favorite' : 'El más elegido'}
               </div>
               <div className={styles.precioPlan}>{locale === 'en' ? 'Entrepreneur Pack' : 'Pack Emprendedor'}</div>
               <div className={styles.precioPrice}>
@@ -978,7 +978,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                 <span className={styles.precioNum}>599</span>
                 <span className={styles.precioUsd}>USD</span>
               </div>
-              <p className={styles.precioDesc}>{locale === 'en' ? 'Ideal for entrepreneurs starting to operate in the U.S.' : 'Ideal para emprendedores que empiezan a operar en EE.UU.'}</p>
+              <p className={styles.precioDesc}>{locale === 'en' ? 'For entrepreneurs who need a clean U.S. setup to start operating.' : 'Para emprendedores que necesitan una estructura clara para empezar a operar en EE.UU.'}</p>
               <div className={styles.precioDivider} />
               <ul className={styles.precioFeatures}>
                 <li>
@@ -986,10 +986,10 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   <strong>{locale === 'en' ? 'U.S. LLC' : 'LLC en EE.UU.'}</strong>
                 </li>
                 <li className={styles.precioSublist}>Wyoming · Delaware · Montana · Florida · New Mexico</li>
-                <li className={styles.precioSublist}>{locale === 'en' ? 'Other states: contact support' : 'Otros estados: contactate por soporte'}</li>
+                <li className={styles.precioSublist}>{locale === 'en' ? 'Other states: ask our team' : 'Otros estados: consultá con el equipo'}</li>
                 <li>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
-                  {locale === 'en' ? 'Bank account included — Relay, Mercury or Lili Bank' : 'Cuenta bancaria incluida - Relay, Mercury o Lili Bank'}
+                  {locale === 'en' ? 'Banking support — Relay, Mercury or Lili Bank' : 'Acompañamiento bancario - Relay, Mercury o Lili Bank'}
                 </li>
                 <li>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
@@ -1009,7 +1009,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                 </li>
                 <li>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
-                  {locale === 'en' ? 'Legal advisory on LLC obligations' : 'Asesoría legal sobre obligaciones LLC'}
+                  {locale === 'en' ? 'Guidance on LLC obligations' : 'Orientación sobre obligaciones LLC'}
                 </li>
                 <li>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
@@ -1017,14 +1017,14 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                   {' '}<span className={styles.precioFreeBadge}>{locale === 'en' ? '3 months free' : '3 meses gratis'}</span>
                 </li>
                 <li className={styles.precioSublist}>{locale === 'en' ? 'AI Accounting · USD Invoicing · Legal library' : 'Contabilidad IA · Facturación USD · Biblioteca legal'}</li>
-                <li className={styles.precioSublist}>{locale === 'en' ? 'Then $25 USD/mo · cancel anytime' : 'Luego $25 USD/mes · cancelás cuando quieras'}</li>
+                <li className={styles.precioSublist}>{locale === 'en' ? 'Then $25 USD/mo · cancel anytime' : 'Luego $25 USD/mes · cancelación flexible'}</li>
                 <li>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
                   {locale === 'en' ? '24/7 Support' : 'Soporte 24/7'}
                 </li>
               </ul>
               <div className={styles.precioCtas}>
-                <Link href={consultationHref} className={`btn btn-llamada ${styles.precioCta}`}>{locale === 'en' ? 'Book a call' : 'Agendar llamada'}</Link>
+                <Link href={consultationHref} className={`btn btn-llamada ${styles.precioCta}`}>{locale === 'en' ? 'Book a call' : 'Reservar llamada'}</Link>
                 <Link href={wizardHref} className={`btn btn-comenzar ${styles.precioCta}`}>{locale === 'en' ? 'Create my LLC →' : 'Crear mi LLC →'}</Link>
               </div>
               <div className={`${styles.precioDays} ${styles.precioDaysHighlight}`}>
@@ -1044,7 +1044,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                 <span className={styles.precioNum}>850</span>
                 <span className={styles.precioUsd}>USD</span>
               </div>
-              <p className={styles.precioDesc}>{locale === 'en' ? 'For more sophisticated operations: any state and a full year of platform with no monthly fees.' : 'Para operaciones más sofisticadas: cualquier estado y un año entero de plataforma sin pagos mensuales.'}</p>
+              <p className={styles.precioDesc}>{locale === 'en' ? 'For operations that need more flexibility, any state, and one year of platform access included.' : 'Para operaciones que necesitan más flexibilidad, cualquier estado y un año de plataforma incluido.'}</p>
               <div className={styles.precioDivider} />
               <ul className={styles.precioFeatures}>
                 <li>
@@ -1072,7 +1072,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                 </li>
                 <li>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
-                  {locale === 'en' ? 'Legal advisory on your LLC structure' : 'Asesoría legal sobre tu estructura LLC'}
+                  {locale === 'en' ? 'Guidance on your LLC structure' : 'Orientación sobre tu estructura LLC'}
                 </li>
                 <li>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
@@ -1085,7 +1085,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                 </li>
               </ul>
               <div className={styles.precioCtas}>
-                <Link href={consultationHref} className={`btn btn-llamada ${styles.precioCta}`}>{locale === 'en' ? 'Book a call' : 'Agendar llamada'}</Link>
+                <Link href={consultationHref} className={`btn btn-llamada ${styles.precioCta}`}>{locale === 'en' ? 'Book a call' : 'Reservar llamada'}</Link>
                 <Link href={locale === 'en' ? '/en#precios' : '/#precios'} className={`btn btn-comenzar ${styles.precioCta}`}>{locale === 'en' ? 'View full details →' : 'Ver más detalles →'}</Link>
               </div>
               <div className={`${styles.precioDays} ${styles.precioDaysHighlight}`}>
@@ -1105,7 +1105,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                 <span className={styles.precioNum}>1,450</span>
                 <span className={styles.precioUsd}>USD</span>
               </div>
-              <p className={styles.precioDesc}>{locale === 'en' ? 'Complete annual solution: LLC + Preparation of informational filing + state fees + full 1-year platform + dedicated account manager.' : 'Solución anual completa: LLC + Preparación de información declarativa + fees del estado + plataforma 2 años completa + account manager dedicado.'}</p>
+              <p className={styles.precioDesc}>{locale === 'en' ? 'A complete annual package: LLC, informational filing preparation, state fees, platform access, and dedicated account manager.' : 'Un paquete anual completo: LLC, preparación declarativa, fees estatales, plataforma y account manager dedicado.'}</p>
               <div className={styles.precioDivider} />
               <ul className={styles.precioFeatures}>
                 <li>
@@ -1148,7 +1148,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                 </li>
               </ul>
               <div className={styles.precioCtas}>
-                <Link href={consultationHref} className={`btn btn-llamada ${styles.precioCta}`}>{locale === 'en' ? 'Book a call' : 'Agendar llamada'}</Link>
+                <Link href={consultationHref} className={`btn btn-llamada ${styles.precioCta}`}>{locale === 'en' ? 'Book a call' : 'Reservar llamada'}</Link>
                 <Link href={locale === 'en' ? '/en#precios' : '/#precios'} className={`btn btn-comenzar ${styles.precioCta}`}>{locale === 'en' ? 'View details →' : 'Ver detalles →'}</Link>
               </div>
               <div className={`${styles.precioDays} ${styles.precioDaysHighlight}`}>
@@ -1160,14 +1160,14 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
           {/* Additional services */}
           <div id="servicios-adicionales">
             <ScrollReveal className={styles.preciosExtras}>
-              <div className={styles.preciosExtrasLabel}>{locale === 'en' ? 'Additional services' : 'Servicios adicionales'}</div>
+              <div className={styles.preciosExtrasLabel}>{locale === 'en' ? 'Add-on services' : 'Servicios complementarios'}</div>
               <div className={styles.preciosExtrasRow}>
                 <div className={styles.precioExtra}>
                   <div className={styles.precioExtraIcon}>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
                   </div>
                   <div className={styles.precioExtraInfo}>
-                    <div className={styles.precioExtraName}>{locale === 'en' ? 'Bank Account' : 'Cuenta Bancaria'}</div>
+                    <div className={styles.precioExtraName}>{locale === 'en' ? 'Bank Account' : 'Cuenta bancaria'}</div>
                     <div className={styles.precioExtraDetail}>{locale === 'en' ? 'Mercury or Relay, without prior LLC' : 'Mercury o Relay, sin LLC previa'}</div>
                   </div>
                   <div className={styles.precioExtraPrice}>$150 <span>USD</span></div>
@@ -1177,7 +1177,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /></svg>
                   </div>
                   <div className={styles.precioExtraInfo}>
-                    <div className={styles.precioExtraName}>{locale === 'en' ? 'Annual LLC Renewal' : 'Renovación Anual LLC'}</div>
+                    <div className={styles.precioExtraName}>{locale === 'en' ? 'Annual LLC Renewal' : 'Renovación anual LLC'}</div>
                     <div className={styles.precioExtraDetail}>Annual Report + Registered Agent</div>
                   </div>
                   <div className={styles.precioExtraPrice}>$600 <span>USD</span></div>
@@ -1187,7 +1187,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#01C9E2" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" /></svg>
                   </div>
                   <div className={styles.precioExtraInfo}>
-                    <div className={styles.precioExtraName}>{locale === 'en' ? 'IRS Fines & Penalties' : 'Multas y Penalidades IRS'}</div>
+                    <div className={styles.precioExtraName}>{locale === 'en' ? 'IRS Fines & Penalties' : 'Multas y penalidades IRS'}</div>
                     <div className={styles.precioExtraDetail}>{locale === 'en' ? 'Fine management and resolution' : 'Gestión y resolución de multas'}</div>
                   </div>
                   <div className={styles.precioExtraPrice}>$300 <span>USD + 3%</span></div>
@@ -1196,8 +1196,8 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
             </ScrollReveal>
           </div>
           <ScrollReveal className={styles.preciosExtrasCta}>
-            <Link href={consultationHref} className="btn btn-llamada btn-lg">{locale === 'en' ? 'Book a call' : 'Agendar llamada'}</Link>
-            <Link href={wizardHref} className="btn btn-comenzar btn-lg">{locale === 'en' ? 'Start process' : 'Comenzar proceso'} <ArrowIcon /></Link>
+            <Link href={consultationHref} className="btn btn-llamada btn-lg">{locale === 'en' ? 'Book a call' : 'Reservar llamada'}</Link>
+            <Link href={wizardHref} className="btn btn-comenzar btn-lg">{locale === 'en' ? 'Start process' : 'Iniciar proceso'} <ArrowIcon /></Link>
           </ScrollReveal>
         </div>
       </section>
@@ -1206,7 +1206,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
       <section className={styles.resenasSec} id="resenas">
         <div className="container">
           <ScrollReveal className={styles.resenasHeader}>
-            <h2 className={styles.resenasTitle}>{locale === 'en' ? 'What our clients say' : 'Lo que dicen nuestros clientes'}</h2>
+            <h2 className={styles.resenasTitle}>{locale === 'en' ? 'Client experiences' : 'Experiencias de clientes'}</h2>
             <div className={styles.tpBadgeRow}>
               <img src="/img/trustpilot-white.svg" alt="Trustpilot" className={styles.tpBadgeLogo} width={82} height={20} />
               <img src="/img/trustpilot-stars-5.svg" alt={locale === 'en' ? '5 stars' : '5 estrellas'} className={styles.tpBadgeStars} width={96} height={18} />
@@ -1220,19 +1220,19 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
         <div className='container'>
           <ScrollReveal className={`${styles.elegirCarousel} ${styles.elegirCarouselOuter}`} effect="scale-up" stagger={0.12} id="elegirCarousel" role="list">
             {(locale === 'en' ? [
-              { name: 'Franco Caputo', country: 'Argentina · CEO Wonder Up', avatar: '/img/avatar-franco.png', text: 'Excellent service. Nacho is simply one of the hardest-working, most honest and good people I\'ve met in the industry. I found him by pure chance and it was one of the luckiest coincidences.' },
-              { name: 'José Milani', country: 'Argentina · CEO Ser Optimo', avatar: '/img/avatar-jose.png', text: 'The process was simpler than I expected. In less than two weeks I had my LLC active and the bank account ready to operate from Argentina.' },
-              { name: 'Matias Bottero', country: 'Entre Suculentas · Youtuber', avatar: '/img/avatar-matias.png', text: 'I had issues with my YouTube payments to collect and pay my collaborators. With the LLC we solved it — in 7 business days we had the company in the United States and the bank account ready.' },
-              { name: 'Mateo Sanchez', country: 'Entrepreneur', avatar: '/img/avatar-mateo.png', text: 'Great quality and fast service. They are always quick to reply when you need something. 100% recommended.' },
-              { name: 'Gaston Gallardo', country: 'Entrepreneur', avatar: '/img/avatar-gaston.png', text: 'They delivered on everything they promised, on time and as expected. Highly recommended.' },
-              { name: 'Martin Poblet', country: 'Entrepreneur', avatar: '/img/avatar-martin.png', text: 'Excellent professionals. The entire process was super fast and hassle-free. Highly recommended.' }
+              { name: 'Franco Caputo', country: 'Argentina · CEO Wonder Up', avatar: '/img/avatar-franco.png', text: 'Excellent service. Nacho is one of the most dedicated and honest people I have met in the industry. Finding him was a very fortunate coincidence.' },
+              { name: 'José Milani', country: 'Argentina · CEO Ser Optimo', avatar: '/img/avatar-jose.png', text: 'It was simpler than I expected. In less than two weeks my LLC was active and the bank account was ready to operate from Argentina.' },
+              { name: 'Matias Bottero', country: 'Entre Suculentas · Youtuber', avatar: '/img/avatar-matias.png', text: 'I needed to organize YouTube collections and collaborator payments. With the LLC, the company and bank account were ready quickly.' },
+              { name: 'Mateo Sanchez', country: 'Entrepreneur', avatar: '/img/avatar-mateo.png', text: 'Solid quality and fast support. Every time I needed something, the team replied quickly. Completely recommended.' },
+              { name: 'Gaston Gallardo', country: 'Entrepreneur', avatar: '/img/avatar-gaston.png', text: 'They delivered what they promised, in the expected time and with a clear process. Highly recommended.' },
+              { name: 'Martin Poblet', country: 'Entrepreneur', avatar: '/img/avatar-martin.png', text: 'A very professional team. The process was quick, organized, and easy to follow from start to finish.' }
             ] : [
-              { name: 'Franco Caputo', country: 'Argentina · CEO Wonder Up', avatar: '/img/avatar-franco.png', text: 'Excelente servicio. Nacho es simplemente una de las personas más trabajadoras, honestas y buenas que conocí en el rubro. Lo encontré de pura casualidad y fue una de las coincidencias más afortunadas.' },
-              { name: 'José Milani', country: 'Argentina · CEO Ser Optimo', avatar: '/img/avatar-jose.png', text: 'El proceso fue más simple de lo que pensaba. En menos de dos semanas tuve mi LLC activa y la cuenta bancaria lista para operar desde Argentina.' },
-              { name: 'Matias Bottero', country: 'Entre Suculentas · Youtuber', avatar: '/img/avatar-matias.png', text: 'Tenía problemas con mis pagos de YouTube para cobrar y pagarle a mis colaboradores. Con la LLC lo resolvimos — en 7 días hábiles teníamos la empresa en Estados Unidos y la cuenta bancaria lista.' },
-              { name: 'Mateo Sanchez', country: 'Emprendedor', avatar: '/img/avatar-mateo.png', text: 'Gran calidad y servicio rápido. Siempre responden rápido cuando necesitás algo. 100% recomendable.' },
-              { name: 'Gaston Gallardo', country: 'Emprendedor', avatar: '/img/avatar-gaston.png', text: 'Cumplieron con todo lo que nos dijeron en tiempo y forma, súper recomendable.' },
-              { name: 'Martin Poblet', country: 'Emprendedor', avatar: '/img/avatar-martin.png', text: 'Excelentes profesionales. El proceso fue súper rápido y sin complicaciones. Totalmente recomendable.' }
+              { name: 'Franco Caputo', country: 'Argentina · CEO Wonder Up', avatar: '/img/avatar-franco.png', text: 'Excelente servicio. Nacho es una de las personas más trabajadoras y honestas que conocí en el rubro. Haberlo encontrado fue una gran coincidencia.' },
+              { name: 'José Milani', country: 'Argentina · CEO Ser Optimo', avatar: '/img/avatar-jose.png', text: 'Fue más simple de lo que imaginaba. En menos de dos semanas tenía la LLC activa y la cuenta bancaria lista para operar desde Argentina.' },
+              { name: 'Matias Bottero', country: 'Entre Suculentas · Youtuber', avatar: '/img/avatar-matias.png', text: 'Necesitaba ordenar cobros de YouTube y pagos a colaboradores. Con la LLC, la empresa y la cuenta bancaria quedaron listas rápidamente.' },
+              { name: 'Mateo Sanchez', country: 'Emprendedor', avatar: '/img/avatar-mateo.png', text: 'Muy buena calidad y atención rápida. Cada vez que necesitás algo, el equipo responde con claridad. 100% recomendable.' },
+              { name: 'Gaston Gallardo', country: 'Emprendedor', avatar: '/img/avatar-gaston.png', text: 'Cumplieron lo prometido, en los tiempos esperados y con un proceso claro. Muy recomendable.' },
+              { name: 'Martin Poblet', country: 'Emprendedor', avatar: '/img/avatar-martin.png', text: 'Un equipo muy profesional. El proceso fue rápido, ordenado y fácil de seguir de principio a fin.' }
             ]).map(({ name, country, avatar, text }: { name: string; country: string; avatar: string; text: string }) => (
               <div key={name} className={styles.elegirReviewCard} role="listitem" data-anim="elegirReviewCard">
                 <div className={styles.cardTopRow}>
@@ -1260,8 +1260,8 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
         <section className={styles.blogSec} id="blog">
           <div className="container">
             <ScrollReveal className={styles.blogHeader}>
-              <h2 className={styles.blogTitle}>{locale === 'en' ? 'Want to learn more?' : '¿Deseás conocer más?'}</h2>
-              <p className={styles.blogSub}>{locale === 'en' ? 'Guides, tutorials, and resources for Latin American entrepreneurs operating in the U.S.' : 'Guías, tutoriales y recursos para emprendedores de LATAM que operan en EE.UU.'}</p>
+              <h2 className={styles.blogTitle}>{locale === 'en' ? 'Keep learning before you decide' : 'Seguí aprendiendo antes de decidir'}</h2>
+              <p className={styles.blogSub}>{locale === 'en' ? 'Practical guides and resources for Latin American entrepreneurs building with a U.S. company.' : 'Guías prácticas y recursos para emprendedores de LATAM que operan con una empresa en EE.UU.'}</p>
             </ScrollReveal>
             <ScrollReveal effect="scale-up" stagger={0.1} className={styles.blogGrid}>
               {recentPosts.slice(0, 3).map((post) => (
@@ -1279,7 +1279,7 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
               ))}
             </ScrollReveal>
             <ScrollReveal className={styles.blogCta}>
-              <Link href="/blog" className="btn btn-llamada">{locale === 'en' ? 'View all articles' : 'Ver más blogs'} <ArrowIcon /></Link>
+              <Link href="/blog" className="btn btn-llamada">{locale === 'en' ? 'View all articles' : 'Ver todos los artículos'} <ArrowIcon /></Link>
             </ScrollReveal>
           </div>
         </section>
@@ -1291,80 +1291,80 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
         <div className={styles.faqGlow2} aria-hidden="true" />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <ScrollReveal className={styles.faqHeader}>
-            <h2 className={styles.faqTitle}>{locale === 'en' ? 'Everything you need to know' : 'Todo lo que necesitás saber'}</h2>
-            <p className={styles.faqSub}>{locale === 'en' ? 'We answer the most common questions before opening your LLC.' : 'Respondemos las dudas más comunes antes de abrir tu LLC.'}</p>
+            <h2 className={styles.faqTitle}>{locale === 'en' ? 'Common questions, clear answers' : 'Preguntas frecuentes, respuestas claras'}</h2>
+            <p className={styles.faqSub}>{locale === 'en' ? 'Review the key points before opening and operating your LLC.' : 'Revisá los puntos clave antes de abrir y operar tu LLC.'}</p>
           </ScrollReveal>
           <ScrollReveal effect="fade-up" stagger={0.06} className={styles.faqList}>
             {(locale === 'en' ? [
               {
-                q: 'Do I need to be a U.S. citizen to open an LLC?',
-                a: 'No. Anyone over 18 can open a U.S. LLC, regardless of nationality or residency. You don\'t need a visa, U.S. passport, or physical presence in the country.',
+                q: 'Do I need U.S. citizenship to open an LLC?',
+                a: 'No. Anyone over 18 can open a U.S. LLC, regardless of nationality or residency. You do not need a visa, U.S. passport, or physical presence.',
                 cta: { text: 'Start process', href: wizardHref }
               },
               {
                 q: 'How long does the full process take?',
-                a: 'The full process — LLC approved + EIN + bank account — takes between 5 and 7 business days. The process status is visible in real time from your personal dashboard on our platform.',
+                a: 'The full process, including LLC approval, EIN, and banking support, usually takes 5 to 7 business days. You can track each step from your dashboard.',
                 cta: { text: 'Book a call', href: consultationHref }
               },
               {
                 q: 'What is an EIN and what is it for?',
-                a: 'The EIN (Employer Identification Number) is your company\'s tax identification number with the IRS. You need it to open bank accounts, contract with corporate clients, and file taxes. It\'s included in all our plans.',
+                a: 'The EIN is your company tax identification number with the IRS. You need it for banking, corporate clients, and tax filings. It is included in all our plans.',
                 cta: { text: 'Start process', href: wizardHref }
               },
               {
                 q: 'Can I open a bank account without traveling to the U.S.?',
-                a: 'Yes. We are official partners of Mercury and Relay, which allow 100% online bank account opening for non-resident LLCs. We handle the entire process for you, without you having to leave your country.',
+                a: 'Yes. Mercury, Relay, and other providers allow online banking applications for non-resident LLCs. We guide the process without requiring you to travel.',
                 cta: { text: 'Book a call', href: consultationHref }
               },
               {
                 q: 'What taxes do I have to pay as a non-resident?',
-                a: 'A single-member LLC owned by a non-resident generally does not pay U.S. federal taxes if its income comes from activities conducted outside the country. However, you must file Form 5472 with the IRS. We advise you based on your specific situation.',
+                a: 'A single-member LLC owned by a non-resident may not owe U.S. federal income tax when income comes from activity outside the country, but filing obligations still apply. We review your case.',
                 cta: { text: 'Start process', href: wizardHref }
               },
               {
                 q: 'What does the management dashboard include?',
-                a: 'The dashboard includes: professional USD invoicing, AI accounting with automatic P&L, legal library with ready-to-sign contracts, educational videos about LLCs, company roadmap, and tax compliance reminders. The first 3 months are completely free.',
+                a: 'The dashboard includes USD invoicing, AI accounting, P&L visibility, legal templates, LLC videos, company roadmap, and compliance reminders. The first 3 months are included.',
                 cta: { text: 'Book a call', href: consultationHref }
               },
               {
                 q: 'What happens if I don\'t renew my LLC on time?',
-                a: 'If you don\'t renew your LLC on time, the state can dissolve it and you would lose the name, EIN, and associated bank account. In New Mexico, the Annual Report must be filed every year. Our renewal service includes the Annual Report and Registered Agent so you never lose your company.',
+                a: 'If you miss renewals, the state can mark the company inactive or dissolve it, which can affect your bank account and operations. Our renewal service keeps the Annual Report and Registered Agent covered.',
                 cta: { text: 'Start process', href: renewHref }
               }
             ] : [
               {
-                q: '¿Necesito ser ciudadano americano para abrir una LLC?',
-                a: 'No. Cualquier persona mayor de 18 años puede abrir una LLC en EE.UU., independientemente de su nacionalidad o residencia. No necesitás visa, pasaporte americano ni presencia física en el país.',
-                cta: { text: 'Comenzar proceso', href: wizardHref }
+                q: '¿Necesito ciudadanía estadounidense para abrir una LLC?',
+                a: 'No. Cualquier persona mayor de 18 años puede abrir una LLC en EE.UU., sin importar su nacionalidad o residencia. No necesitás visa, pasaporte americano ni presencia física.',
+                cta: { text: 'Iniciar proceso', href: wizardHref }
               },
               {
                 q: '¿Cuánto tiempo tarda el proceso completo?',
-                a: 'El proceso completo —LLC aprobada + EIN + cuenta bancaria— toma entre 5 y 7 días hábiles. El estado del proceso es visible en tiempo real desde tu panel personal en nuestra plataforma.',
-                cta: { text: 'Agendar llamada', href: consultationHref }
+                a: 'El proceso completo, incluyendo LLC aprobada, EIN y acompañamiento bancario, suele tomar entre 5 y 7 días hábiles. Podés seguir cada etapa desde tu panel.',
+                cta: { text: 'Reservar llamada', href: consultationHref }
               },
               {
                 q: '¿Qué es el EIN y para qué sirve?',
-                a: 'El EIN (Employer Identification Number) es el número de identificación fiscal de tu empresa ante el IRS. Lo necesitás para abrir cuentas bancarias, contratar con clientes corporativos y presentar impuestos. Está incluido en todos nuestros planes.',
-                cta: { text: 'Comenzar proceso', href: wizardHref }
+                a: 'El EIN es el número de identificación fiscal de tu empresa ante el IRS. Lo necesitás para bancos, clientes corporativos y declaraciones fiscales. Está incluido en todos los planes.',
+                cta: { text: 'Iniciar proceso', href: wizardHref }
               },
               {
                 q: '¿Puedo abrir una cuenta bancaria sin viajar a EE.UU.?',
-                a: 'Sí. Somos partners oficiales de Mercury y Relay, que permiten la apertura de cuentas bancarias 100% online para LLCs de no residentes. Gestionamos todo el proceso por vos, sin que tengas que moverte de tu país.',
-                cta: { text: 'Agendar llamada', href: consultationHref }
+                a: 'Sí. Mercury, Relay y otros proveedores permiten solicitudes bancarias online para LLCs de no residentes. Te guiamos sin que tengas que viajar.',
+                cta: { text: 'Reservar llamada', href: consultationHref }
               },
               {
                 q: '¿Qué impuestos debo pagar como no residente?',
-                a: 'Una LLC de un solo miembro no residente generalmente no paga impuestos federales en EE.UU. si sus ingresos provienen de actividades realizadas fuera del país. Sin embargo, debés presentar el formulario 5472 ante el IRS. Te asesoramos según tu situación específica.',
-                cta: { text: 'Comenzar proceso', href: wizardHref }
+                a: 'Una LLC de un solo miembro y dueño no residente puede no pagar impuesto federal sobre ingresos generados fuera de EE.UU., pero igual existen obligaciones informativas. Revisamos tu caso.',
+                cta: { text: 'Iniciar proceso', href: wizardHref }
               },
               {
                 q: '¿Qué incluye el panel de gestión?',
-                a: 'El panel incluye: facturación profesional en USD, contabilidad con IA y P&L automático, biblioteca legal con contratos listos para firmar, videos educativos sobre LLCs, roadmap de tu empresa y recordatorios de cumplimiento fiscal. Los primeros 3 meses son completamente gratis.',
-                cta: { text: 'Agendar llamada', href: consultationHref }
+                a: 'El panel incluye facturación USD, contabilidad IA, visibilidad de P&L, plantillas legales, videos sobre LLCs, roadmap de empresa y recordatorios de cumplimiento. Los primeros 3 meses están incluidos.',
+                cta: { text: 'Reservar llamada', href: consultationHref }
               },
               {
                 q: '¿Qué pasa si no renuevo mi LLC a tiempo?',
-                a: 'Si no renovás tu LLC a tiempo, el estado puede disolverla y perderías el nombre, el EIN y la cuenta bancaria asociada. En Nuevo México el Annual Report debe presentarse cada año. Nuestro servicio de renovación incluye el Annual Report y el Registered Agent para que nunca pierdas tu empresa.',
+                a: 'Si no renovás a tiempo, el estado puede marcar la empresa como inactiva o disolverla, afectando banco y operación. Nuestro servicio cubre Annual Report y Registered Agent.',
                 cta: { text: 'Renovar LLC', href: renewHref }
               }
             ]).map(({ q, a, cta }) => (
@@ -1401,16 +1401,16 @@ export function HomePage({ recentPosts, locale }: HomePageProps) {
             </div>
             <span className={styles.ctaFinalTpText}>{locale === 'en' ? <>4.9/5 on <span className="tp-green">Trustpilot</span> · +250 verified reviews</> : <>4.9/5 en <span className="tp-green">Trustpilot</span> · +250 reseñas verificadas</>}</span>
           </div>
-          <h2 className={styles.ctaFinalTitle}>{locale === 'en' ? <>Start today.<br />Your U.S. company awaits.</> : <>Empezá hoy.<br />Tu empresa en EE.UU. te espera.</>}</h2>
-          <p className={styles.ctaFinalSub}>{locale === 'en' ? 'Over 1,400 entrepreneurs have already expanded their financial freedom.' : 'Más de 1,400 emprendedores ya expandieron su libertad financiera.'}</p>
+          <h2 className={styles.ctaFinalTitle}>{locale === 'en' ? <>Start today.<br />Build from a U.S. company.</> : <>Empezá hoy.<br />Operá con tu empresa en EE.UU.</>}</h2>
+          <p className={styles.ctaFinalSub}>{locale === 'en' ? 'More than 1,400 entrepreneurs already use a U.S. structure to operate globally.' : 'Más de 1,400 emprendedores ya usan una estructura estadounidense para operar globalmente.'}</p>
           <div className={styles.ctaFinalActions}>
             <Link href={consultationHref} className="btn btn-llamada btn-lg">
-              {locale === 'en' ? 'Book free call' : 'Agendar llamada gratuita'}{' '}
+              {locale === 'en' ? 'Book free call' : 'Reservar llamada gratuita'}{' '}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
               </svg>
             </Link>
-            <Link href={wizardHref} className="btn btn-comenzar btn-lg">{locale === 'en' ? 'Open my LLC' : 'Comenzar proceso'} <ArrowIcon /></Link>
+            <Link href={wizardHref} className="btn btn-comenzar btn-lg">{locale === 'en' ? 'Open my LLC' : 'Iniciar proceso'} <ArrowIcon /></Link>
           </div>
         </ScrollReveal>
       </section>

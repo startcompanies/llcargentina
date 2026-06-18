@@ -9,11 +9,11 @@ type Props = { locale: Locale };
 
 const t = {
   badge:   { es: 'Página no encontrada', en: 'Page not found' },
-  title1:  { es: 'Esta página se fue a',  en: "This page left to" },
-  title2:  { es: 'abrir su LLC.',          en: 'open its LLC.' },
+  title1:  { es: 'Esta página ya no',  en: "This page is no" },
+  title2:  { es: 'está disponible.',   en: 'longer available.' },
   sub:     {
-    es: 'El enlace que buscás no existe o fue movido. Pero no te preocupes, todo lo que necesitás para abrir tu empresa en EE.UU. está a un clic.',
-    en: "The link you're looking for doesn't exist or was moved. Don't worry — everything you need to open your U.S. company is one click away.",
+    es: 'El enlace que buscás no existe o fue movido. Podés volver al inicio o seguir leyendo guías para operar con tu empresa en EE.UU.',
+    en: "The link you're looking for doesn't exist or was moved. You can go back home or keep reading guides about operating with a U.S. company.",
   },
   cta1:    { es: 'Volver al inicio', en: 'Back to home' },
   cta2:    { es: 'Ver blog',          en: 'View blog' },

@@ -18,7 +18,7 @@ type BlogAdminEditPostPageProps = {
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Editar noticia - Blog Admin'
+  title: 'Editar post - Blog Admin'
 };
 
 function resolveNotice(status?: string, error?: string) {
@@ -52,7 +52,7 @@ export default async function BlogAdminEditPostPage({ params, searchParams }: Bl
   return (
     <AdminShell
       currentPath="/blog-admin/posts"
-      title={initialPost.title || 'Editar noticia'}
+      title={initialPost.title || 'Editar post'}
       description="Actualizá el contenido, metadata, imágenes y estado editorial del artículo."
       notice={resolveNotice(query.status, query.error)}
     >

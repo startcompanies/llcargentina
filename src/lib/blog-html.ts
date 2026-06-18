@@ -260,8 +260,8 @@ export function renderCtaSection(type: PostSectionType | 'CTA_CONSULTATION' | 'C
   if (type === 'CTA_PRICING') {
     return `
       <div class="cta-box">
-        <h2>¿Querés ver planes y precios claros?</h2>
-        <p>Compará opciones, entendé qué incluye cada pack y elegí la estructura correcta para tu negocio.</p>
+        <h2>¿Querés comparar planes con claridad?</h2>
+        <p>Revisá opciones, alcance incluido y qué estructura encaja mejor con tu negocio.</p>
         <a class="btn-cta" href="/#precios">Ver planes y precios</a>
       </div>
     `;
@@ -270,12 +270,12 @@ export function renderCtaSection(type: PostSectionType | 'CTA_CONSULTATION' | 'C
   return `
     <div class="cta-box cta-box-consultation">
       <div class="cta-box-inner">
-        <p class="cta-box-kicker">Empezá hoy</p>
-        <h2>¿Querés abrir tu LLC sin complicaciones?</h2>
-        <p class="cta-box-copy">Nuestro equipo de contadores y tributaristas internacionales te acompaña en todo el proceso. LLC activa en 7 días hábiles.</p>
+        <p class="cta-box-kicker">Primer paso</p>
+        <h2>¿Querés abrir tu LLC con acompañamiento?</h2>
+        <p class="cta-box-copy">Nuestro equipo contable y tributario te guía en la apertura, el EIN, la banca y el cumplimiento inicial.</p>
         <div class="cta-box-actions">
           <a class="btn-cta btn-cta-primary" href="https://panel.llcargentina.io/apertura-llc">
-            <span>Abrir mi LLC — desde $599</span>
+            <span>Abrir mi LLC desde $599</span>
             <span aria-hidden="true">→</span>
           </a>
           <a
@@ -288,7 +288,7 @@ export function renderCtaSection(type: PostSectionType | 'CTA_CONSULTATION' | 'C
                 <path d="M8 3.5v3M16 3.5v3M4 9h16"></path>
               </svg>
             </span>
-            <span>Consulta gratuita</span>
+            <span>Asesoría inicial</span>
           </a>
         </div>
         <p class="cta-box-footnote">

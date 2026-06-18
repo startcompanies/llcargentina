@@ -5,9 +5,9 @@ import styles from './BlogAuthorCard.module.css';
 const AUTHOR = {
   name: 'Ignacio Navarro',
   descriptionEs:
-    'Ignacio Navarro es Contador Público, fundador de LLC Argentina y asesor especializado en sociedades en Estados Unidos para emprendedores, freelancers y negocios digitales de Latinoamérica. Con formación en tributación internacional y estudios en UCEMA, acompaña a clientes no residentes en la creación y mantenimiento de LLCs, apertura bancaria, facturación, contabilidad e impuestos. Su experiencia combina estrategia fiscal, cumplimiento y visión práctica para operar en EE.UU. de forma simple, ordenada y profesional.',
+    'Ignacio Navarro es Contador Público, fundador de LLC Argentina y asesor especializado en sociedades estadounidenses para emprendedores, freelancers y negocios digitales de Latinoamérica. Con formación en tributación internacional y estudios en UCEMA, acompaña a clientes no residentes en apertura y mantenimiento de LLCs, banca, facturación, contabilidad e impuestos. Su trabajo combina estrategia fiscal, cumplimiento y una mirada práctica para operar en EE.UU. con orden.',
   descriptionEn:
-    'Ignacio Navarro is a Certified Public Accountant, founder of LLC Argentina and a specialist in U.S. companies for entrepreneurs, freelancers and digital businesses in Latin America. With training in international taxation and studies at UCEMA, he advises non-resident clients on forming and maintaining LLCs, opening bank accounts, invoicing, accounting and taxes. His experience combines tax strategy, compliance and practical vision for operating in the U.S. in a simple, organized and professional way.',
+    'Ignacio Navarro is a Certified Public Accountant, founder of LLC Argentina, and a specialist in U.S. companies for entrepreneurs, freelancers, and digital businesses in Latin America. With international tax training and studies at UCEMA, he advises non-resident clients on LLC formation and maintenance, banking, invoicing, accounting, and taxes. His work combines tax strategy, compliance, and practical execution for operating in the U.S. with order.',
   image: '/img/ignacio-navarro.webp',
   socials: [
     {

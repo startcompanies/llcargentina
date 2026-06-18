@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: '%s - LLC Argentina'
   },
   description:
-    'Abrimos LLCs en Estados Unidos para latinoamericanos sin residencia ni viajes. Cuenta bancaria garantizada (Mercury, Relay o Chase). 100% online en 7 días hábiles.',
+    'Creamos LLCs en Estados Unidos para latinoamericanos sin residencia ni viajes. Te acompañamos con EIN, banco en dólares y operación online en pocos días hábiles.',
   keywords: [
     'LLC',
     'empresa Estados Unidos',
@@ -79,8 +79,8 @@ function getOrganizationSchema(locale: Locale) {
     logo: `${siteUrl}/brand/llc-argentina-white-text.svg`,
     description:
       locale === 'en'
-        ? 'We form LLCs in the United States for Latin Americans with no residency or travel required. Guaranteed bank account. 100% online in 7 business days.'
-        : 'Abrimos LLCs en Estados Unidos para latinoamericanos sin residencia ni viajes. Cuenta bancaria garantizada. 100% online en 7 días hábiles.',
+        ? 'We create U.S. LLCs for Latin Americans with no residency or travel required, including EIN, banking support, and an online process.'
+        : 'Creamos LLCs en Estados Unidos para latinoamericanos sin residencia ni viajes, con EIN, acompañamiento bancario y proceso online.',
     foundingDate: '2021',
     contactPoint: {
       '@type': 'ContactPoint',

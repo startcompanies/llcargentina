@@ -4,15 +4,15 @@ type FaqItem = {
 };
 
 export const heroRotatingTexts = [
-  "no residency or travel required.",
-  "100% online from anywhere.",
-  "bank account included.",
+  "without living or traveling to the U.S.",
+  "online from anywhere in LATAM.",
+  "with USD banking included.",
 ];
 
 export const heroStats = [
   { value: 1000, suffix: "+", label: "LLCs formed" },
   { value: 4.9, suffix: "★", label: "Trustpilot" },
-  { value: 7, suffix: " days", label: "Average LLC ready" },
+  { value: 7, suffix: " days", label: "Average setup time" },
 ];
 
 export const services = [
@@ -20,62 +20,62 @@ export const services = [
     icon: "🏢",
     title: "U.S. LLC",
     description:
-      "Single Member LLC in Wyoming, New Mexico, or Florida. Full documentation in 7 business days.",
+      "Single Member LLC in Wyoming, New Mexico, or Florida, with full documents in about one business week.",
   },
   {
     icon: "🏦",
     title: "Bank account",
     description:
-      "Mercury, Relay, or Lili Bank. 100% online, no SSN or physical visit to the U.S. required.",
+      "Mercury, Relay, or Lili Bank. Online setup, no SSN, and no trip to the United States required.",
   },
   {
     icon: "🔢",
     title: "EIN (Tax ID)",
     description:
-      "Federal tax identification number. Required to open a bank account and operate legally.",
+      "Federal tax identification for banking, invoicing, and operating with the right legal foundation.",
   },
   {
     icon: "📄",
     title: "Operating Agreement",
     description:
-      "LLC operating contract. Articles of Organization included and apostilled.",
+      "Your LLC operating contract, with Articles of Organization included and ready to use.",
   },
   {
     icon: "📍",
     title: "Registered Agent",
     description:
-      "1-year registered agent included. U.S. tax address for your LLC.",
+      "Registered agent included for the first year, plus a U.S. tax address for your company.",
   },
   {
     icon: "💳",
     title: "Stripe & USD payments",
     description:
-      "Assistance to activate Stripe, Wise, and international payment systems in dollars.",
+      "Support to activate Stripe, Wise, and international payment tools in USD.",
   },
 ];
 
 export const partners = [
   {
     name: "Mercury",
-    description: "Leading digital bank for non-resident startups",
+    description: "Digital bank preferred by non-resident founders and startups",
     tag: "Recommended",
     logo: "🔵",
   },
   {
     name: "Relay",
-    description: "Multi-account with no fees for businesses",
+    description: "Multi-account banking built for business operations",
     tag: "Multi-account",
     logo: "🟢",
   },
   {
     name: "Lili Bank",
-    description: "Account designed for freelancers and digital businesses",
+    description: "Account designed for freelancers, creators, and digital businesses",
     tag: "Easy opening",
     logo: "🟡",
   },
   {
     name: "Chase",
-    description: "Traditional bank with in-person opening in Miami",
+    description: "Traditional bank for in-person account opening in Miami",
     tag: "In-person",
     logo: "🏦",
   },
@@ -86,25 +86,25 @@ export const benefits = [
     number: "01",
     title: "Asset protection",
     description:
-      "Your business separate from you personally. Limited liability that protects your personal assets from legal contingencies.",
+      "Keep your business activity separate from you personally, with limited liability around your personal assets.",
   },
   {
     number: "02",
     title: "Tax efficiency",
     description:
-      "As a non-resident with no physical activity in the U.S., you generally pay no U.S. federal income taxes. Legally.",
+      "With the right structure, a non-resident with no physical U.S. activity can legally optimize their tax exposure.",
   },
   {
     number: "03",
     title: "Access to USD banking",
     description:
-      "Collect from global clients in dollars. No restrictions, no hidden fees. Mercury and Relay guaranteed.",
+      "Collect from global clients in dollars through banks and platforms built for international business.",
   },
   {
     number: "04",
     title: "International credibility",
     description:
-      "A U.S. company opens doors: Stripe, PayPal, Amazon, international contracts, and clients worldwide.",
+      "A U.S. company improves access to Stripe, PayPal, Amazon, global contracts, and international clients.",
   },
 ];
 
@@ -113,35 +113,35 @@ export const processSteps = [
     step: 1,
     title: "Free evaluation",
     description:
-      "20-minute video call with an advisor. We analyze your case, choose state and bank.",
+      "Short video call with an advisor to review your case and choose the state, bank, and next steps.",
     fillTarget: 20,
   },
   {
     step: 2,
     title: "Data form",
     description:
-      "Complete an online form in 5 minutes. We prepare all the documentation.",
+      "Submit your details through an online form and our team prepares the documentation.",
     fillTarget: 40,
   },
   {
     step: 3,
     title: "State filing",
     description:
-      "We submit the formation documents to the chosen state (Wyoming or New Mexico).",
+      "We file the formation documents with the selected state.",
     fillTarget: 60,
   },
   {
     step: 4,
     title: "Approval + EIN",
     description:
-      "The state approves your LLC. We handle your EIN with the IRS — you don't have to do anything.",
+      "Once the LLC is approved, we handle the EIN request with the IRS for you.",
     fillTarget: 80,
   },
   {
     step: 5,
     title: "LLC ready + Bank account",
     description:
-      "You receive all your documents and we guide you to open your bank account.",
+      "You receive the final documents and we guide you through the banking setup.",
     fillTarget: 100,
     done: true,
   },
@@ -150,35 +150,35 @@ export const processSteps = [
 export const elegirReviews = [
   {
     stars: "★★★★★",
-    text: "In 7 days I had my LLC approved and my Mercury account active. The whole process was simple and the team was always available.",
+    text: "Within days my LLC was approved and my Mercury account was working. The process was clear and the team stayed available.",
     name: "Santiago L.",
     country: "Mexico 🇲🇽",
     role: "E-commerce",
   },
   {
     stars: "★★★★★",
-    text: "I had been wanting to open my LLC for months. With LLC Argentina it took one week. Now I invoice in USD without any issues from Argentina.",
+    text: "I had postponed opening my LLC for months. LLC Argentina made it fast, and now I invoice in USD from Argentina.",
     name: "Laura C.",
     country: "Argentina 🇦🇷",
     role: "Digital Consultant",
   },
   {
     stars: "★★★★★",
-    text: "I'm from Spain and thought it would be complicated. The team explained everything step by step. Today I have my company in Wyoming operating.",
+    text: "I thought doing it from Spain would be complicated, but they guided me step by step. My Wyoming company is now operating.",
     name: "Javier P.",
     country: "Spain 🇪🇸",
     role: "SaaS Founder",
   },
   {
     stars: "★★★★★",
-    text: "The team answered all my questions the same day. The advisory was honest and direct. I 100% recommend LLC Argentina.",
+    text: "They answered my questions clearly and quickly. The advisory was direct, honest, and very easy to recommend.",
     name: "Rodrigo V.",
     country: "Colombia 🇨🇴",
     role: "Freelancer",
   },
   {
     stars: "★★★★★",
-    text: "I had issues with my YouTube payments to collect and pay my collaborators. With the LLC we solved it — in 7 business days we had the company in the United States and the bank account ready.",
+    text: "I needed to organize YouTube collections and payments to collaborators. The LLC helped us solve it and get the company and bank account ready.",
     name: "Matias Bottero",
     country: "Entre Suculentas · Youtuber",
     role: "",
@@ -187,7 +187,7 @@ export const elegirReviews = [
   },
   {
     stars: "★★★★★",
-    text: "Excellent professionals. The entire process was super fast and hassle-free. Highly recommended.",
+    text: "A very professional team. The process was fast, organized, and free of unnecessary friction.",
     name: "Martin Poblet",
     country: "Argentina 🇦🇷",
     role: "Entrepreneur",
@@ -209,31 +209,31 @@ export const homeFaqItems: FaqItem[] = [
   {
     question: "Do I need to be a U.S. resident to open an LLC?",
     answer:
-      "No. Anyone in the world can open a U.S. LLC without being a resident or citizen. You only need a valid passport and we take care of the rest.",
+      "No. You can open a U.S. LLC without residency or citizenship. A valid passport is enough to start.",
   },
   {
     question: "How long does the process take?",
     answer:
-      "The LLC becomes active in 5–7 business days. The bank account can take an additional 3–10 days depending on the chosen bank (Mercury, Relay, or Lili Bank).",
+      "The LLC is usually active in 5 to 7 business days. Banking may take a few additional days depending on the provider.",
   },
   {
     question: "What taxes do I pay in the U.S.?",
     answer:
-      "As a non-resident with a Single Member LLC and no physical presence or activity in the U.S., you generally pay no U.S. federal income taxes. We advise you on your specific case.",
+      "It depends on your structure and tax residency. In many cases, a non-resident Single Member LLC with no physical U.S. activity does not pay federal tax on foreign-source income.",
   },
   {
     question: "Which state do you recommend for the LLC?",
     answer:
-      "We primarily work with Wyoming and New Mexico. Both have low costs, no state income tax, and fast processing. During the evaluation call, we recommend the best fit for your case.",
+      "Wyoming and New Mexico are often strong options for cost, privacy, and maintenance. We choose the best fit during the evaluation call.",
   },
   {
     question: "How much does it cost to open an LLC?",
     answer:
-      "Our plans start at $599 USD, including LLC formation, EIN, Registered Agent, and bank account.",
+      "Plans start at $599 USD and include LLC formation, EIN, Registered Agent, and banking support.",
   },
   {
     question: "What about taxes in my home country?",
     answer:
-      "That depends on the tax laws of your country of residence. During the evaluation call, we guide you on the tax implications in your specific country.",
+      "That depends on your tax residency and local rules. During the evaluation, we review the main points for your country.",
   },
 ];

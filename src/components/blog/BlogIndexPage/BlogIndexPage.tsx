@@ -35,18 +35,18 @@ export function BlogIndexPage({ content, locale, initialPage }: BlogIndexPagePro
           <div className={styles.heroGlow} />
           <div className="container">
             <div className={styles.heroInner}>
-              <div className={styles.heroBadge}>{en ? 'Blog & Resources' : 'Blog & Recursos'}</div>
+              <div className={styles.heroBadge}>{en ? 'Guides & Resources' : 'Guías y recursos'}</div>
               <h1 className={styles.heroTitle}>
                 {en ? (
-                  <>LLC Argentina Blog:{' '}<br />Your path to doing business in the U.S.</>
+                  <>LLC Argentina Blog:{' '}<br />Build and operate from the U.S.</>
                 ) : (
-                  <>Blog de LLC Argentina:{' '}<br />Tu ruta para emprender en EE.UU.</>
+                  <>Blog de LLC Argentina:{' '}<br />Guías para operar desde EE.UU.</>
                 )}
               </h1>
               <p className={styles.heroSubtitle}>
                 {en
-                  ? 'Guides, tutorials, and resources for Latin American entrepreneurs operating in the U.S.'
-                  : 'Guías, tutoriales y recursos para emprendedores de LATAM que operan en EE.UU.'}
+                  ? 'Practical guides and resources for Latin American entrepreneurs using a U.S. company.'
+                  : 'Guías prácticas y recursos para emprendedores de LATAM que operan con una empresa en EE.UU.'}
               </p>
             </div>
           </div>
@@ -58,7 +58,7 @@ export function BlogIndexPage({ content, locale, initialPage }: BlogIndexPagePro
         <section className={styles.categoriesSection} id="categorias">
           <div className="container">
             <div className="section-label">{en ? 'Category index' : 'Índice por categorías'}</div>
-            <h2 className={`t-h2 ${styles.categoriesTitle}`}>{en ? 'Browse by topic' : 'Explorá por tema'}</h2>
+              <h2 className={`t-h2 ${styles.categoriesTitle}`}>{en ? 'Explore by topic' : 'Explorá por temática'}</h2>
             <div className={styles.categoriesGrid}>
               {content.categoryCards.map((category) => (
                 <BlogCategoryCard key={category.title} category={category} locale={locale} />
@@ -70,22 +70,22 @@ export function BlogIndexPage({ content, locale, initialPage }: BlogIndexPagePro
         <section className={styles.finalCta}>
           <div className="container">
             <div className={styles.finalCtaInner}>
-              <div className={styles.finalCtaLabel}>{en ? 'Free consultation' : 'Consulta gratuita'}</div>
+              <div className={styles.finalCtaLabel}>{en ? 'Free consultation' : 'Asesoría inicial'}</div>
               <h2 className={styles.finalCtaTitle}>
                 {en ? (
-                  <>Want to open your U.S. company<br />with the right structure?</>
+                  <>Ready to open your U.S. company<br />with the right structure?</>
                 ) : (
-                  <>¿Querés abrir tu empresa en EE.UU.<br />con una estructura correcta?</>
+                  <>¿Listo para abrir tu empresa en EE.UU.<br />con una estructura correcta?</>
                 )}
               </h2>
               <p className={styles.finalCtaSubtitle}>
                 {en
-                  ? 'We help you choose the state, bank, and tax structure based on your country and business.'
-                  : 'Te ayudamos a elegir estado, banco y estructura tributaria según tu país y tu negocio.'}
+                  ? 'We help you choose state, bank, and tax approach based on your country and business model.'
+                  : 'Te ayudamos a elegir estado, banco y enfoque tributario según tu país y modelo de negocio.'}
               </p>
               <div className={styles.finalCtaActions}>
                 <Link href={consultationHref} className="btn btn-lg btn-llamada">
-                  {en ? 'Book a call' : 'Agendar llamada'}
+                  {en ? 'Book a call' : 'Reservar llamada'}
                 </Link>
                 <Link href={wizardHref} className={styles.secondaryCta}>
                   {en ? 'See plans & pricing' : 'Ver planes y precios'}

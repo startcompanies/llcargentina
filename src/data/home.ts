@@ -4,15 +4,15 @@ type FaqItem = {
 };
 
 export const heroRotatingTexts = [
-  "sin residencia ni viajes.",
-  "100% online desde LATAM.",
-  "con cuenta bancaria incluida.",
+  "sin vivir ni viajar a EE.UU.",
+  "online desde cualquier país de LATAM.",
+  "con banco en dólares incluido.",
 ];
 
 export const heroStats = [
   { value: 1000, suffix: "+", label: "LLCs creadas" },
   { value: 4.9, suffix: "★", label: "Trustpilot" },
-  { value: 7, suffix: " días", label: "Promedio LLC activa" },
+  { value: 7, suffix: " días", label: "Promedio de apertura" },
 ];
 
 export const services = [
@@ -20,62 +20,62 @@ export const services = [
     icon: "🏢",
     title: "LLC en EE.UU.",
     description:
-      "Single Member LLC en Wyoming, Nuevo México o Florida. Documentos completos en 7 días hábiles.",
+      "Single Member LLC en Wyoming, Nuevo México o Florida, con documentación completa en una semana hábil.",
   },
   {
     icon: "🏦",
     title: "Cuenta bancaria",
     description:
-      "Mercury, Relay o Lili Bank. 100% online, sin SSN ni visita física a EE.UU.",
+      "Mercury, Relay o Lili Bank. Apertura online, sin SSN y sin viajar a Estados Unidos.",
   },
   {
     icon: "🔢",
     title: "EIN (Tax ID)",
     description:
-      "Número impositivo federal. Necesario para abrir la cuenta bancaria y operar legalmente.",
+      "Identificación fiscal federal para abrir cuenta bancaria, facturar y operar con respaldo legal.",
   },
   {
     icon: "📄",
     title: "Operating Agreement",
     description:
-      "Contrato operativo de la LLC. Artículos de organización incluidos y apostillados.",
+      "Acuerdo operativo de la LLC, junto con artículos de organización incluidos y listos para usar.",
   },
   {
     icon: "📍",
     title: "Registered Agent",
     description:
-      "Agente registrado por 1 año incluido. Dirección fiscal en EE.UU. para tu LLC.",
+      "Agente registrado incluido durante el primer año, con dirección fiscal en EE.UU. para tu sociedad.",
   },
   {
     icon: "💳",
     title: "Stripe y cobros en USD",
     description:
-      "Asistencia para activar Stripe, Wise y sistemas de cobro internacional en dólares.",
+      "Acompañamiento para habilitar Stripe, Wise y herramientas de cobro internacional en USD.",
   },
 ];
 
 export const partners = [
   {
     name: "Mercury",
-    description: "Banco digital líder para startups no residentes",
+    description: "Banco digital preferido por startups y founders no residentes",
     tag: "Recomendado",
     logo: "🔵",
   },
   {
     name: "Relay",
-    description: "Multi-cuenta sin comisiones para negocios",
+    description: "Cuentas múltiples y operación simple para negocios",
     tag: "Multi-cuenta",
     logo: "🟢",
   },
   {
     name: "Lili Bank",
-    description: "Cuenta diseñada para freelancers y negocios digitales",
+    description: "Cuenta pensada para freelancers, creadores y negocios digitales",
     tag: "Fácil apertura",
     logo: "🟡",
   },
   {
     name: "Chase",
-    description: "Banco tradicional con apertura presencial en Miami",
+    description: "Banco tradicional para quienes prefieren apertura presencial en Miami",
     tag: "Presencial",
     logo: "🏦",
   },
@@ -86,25 +86,25 @@ export const benefits = [
     number: "01",
     title: "Protección patrimonial",
     description:
-      "Tu negocio separado de tu persona. Responsabilidad limitada que protege tu patrimonio personal ante contingencias legales.",
+      "Separá tu actividad comercial de tu persona, con responsabilidad limitada para proteger tu patrimonio personal.",
   },
   {
     number: "02",
     title: "Eficiencia fiscal",
     description:
-      "Como no residente sin actividad física en EE.UU., generalmente no pagás impuestos federales norteamericanos. Legalmente.",
+      "Con la estructura correcta, un no residente sin actividad física en EE.UU. puede optimizar su carga fiscal de forma legal.",
   },
   {
     number: "03",
     title: "Acceso a bancos en USD",
     description:
-      "Cobrás de clientes globales en dólares. Sin restricciones, sin comisiones ocultas. Mercury y Relay garantizados.",
+      "Cobrale a clientes globales en dólares con bancos y plataformas preparados para negocios internacionales.",
   },
   {
     number: "04",
     title: "Credibilidad internacional",
     description:
-      "Una empresa en EE.UU. abre puertas: Stripe, PayPal, Amazon, contratos internacionales y clientes en todo el mundo.",
+      "Una compañía estadounidense mejora tu acceso a Stripe, PayPal, Amazon, contratos y clientes internacionales.",
   },
 ];
 
@@ -113,35 +113,35 @@ export const processSteps = [
     step: 1,
     title: "Evaluación gratuita",
     description:
-      "Videollamada de 20 min con un asesor. Analizamos tu caso, elegimos estado y banco.",
+      "Videollamada breve con un asesor para entender tu caso y definir estado, banco y próximos pasos.",
     fillTarget: 20,
   },
   {
     step: 2,
     title: "Formulario de datos",
     description:
-      "Completás un formulario online en 5 minutos. Nosotros preparamos toda la documentación.",
+      "Cargás tus datos en un formulario online y nuestro equipo prepara la documentación.",
     fillTarget: 40,
   },
   {
     step: 3,
     title: "Presentación al estado",
     description:
-      "Enviamos los documentos de formación al estado elegido (Wyoming o Nuevo México).",
+      "Presentamos la documentación de formación ante el estado elegido.",
     fillTarget: 60,
   },
   {
     step: 4,
     title: "Aprobación + EIN",
     description:
-      "El estado aprueba la LLC. Gestionamos tu EIN ante el IRS sin que tengas que hacer nada.",
+      "Cuando la LLC queda aprobada, gestionamos el EIN ante el IRS por vos.",
     fillTarget: 80,
   },
   {
     step: 5,
     title: "LLC lista + Cuenta bancaria",
     description:
-      "Recibís todos tus documentos y te guiamos para abrir tu cuenta bancaria.",
+      "Recibís tus documentos finales y te acompañamos en la apertura bancaria.",
     fillTarget: 100,
     done: true,
   },
@@ -150,35 +150,35 @@ export const processSteps = [
 export const elegirReviews = [
   {
     stars: "★★★★★",
-    text: "En 7 días tuve mi LLC aprobada y mi cuenta en Mercury activa. Todo el proceso fue simple y el equipo estuvo siempre disponible.",
+    text: "En pocos días tenía la LLC aprobada y la cuenta en Mercury funcionando. El proceso fue claro y el equipo respondió siempre.",
     name: "Santiago L.",
     country: "México 🇲🇽",
     role: "E-commerce",
   },
   {
     stars: "★★★★★",
-    text: "Llevaba meses queriendo abrir mi LLC. Con LLC Argentina fue en una semana. Ahora facturo en USD sin problema desde Argentina.",
+    text: "Venía postergando la apertura de mi LLC. Con LLC Argentina lo resolví rápido y hoy facturo en USD desde Argentina.",
     name: "Laura C.",
     country: "Argentina 🇦🇷",
     role: "Consultora Digital",
   },
   {
     stars: "★★★★★",
-    text: "Soy de España y pensé que sería complicado. El equipo me explicó todo paso a paso. Hoy tengo mi empresa en Wyoming operando.",
+    text: "Pensé que desde España iba a ser complicado, pero me guiaron paso a paso. Hoy mi empresa en Wyoming está operativa.",
     name: "Javier P.",
     country: "España 🇪🇸",
     role: "SaaS Founder",
   },
   {
     stars: "★★★★★",
-    text: "El equipo respondió todas mis dudas el mismo día. La asesoría fue honesta y directa. Recomiendo 100% a LLC Argentina.",
+    text: "Me respondieron las dudas con claridad y sin vueltas. La asesoría fue directa, honesta y muy recomendable.",
     name: "Rodrigo V.",
     country: "Colombia 🇨🇴",
     role: "Freelancer",
   },
   {
     stars: "★★★★★",
-    text: "Tenía problemas con mis pagos de YouTube para cobrar y pagarle a mis colaboradores. Con la LLC lo resolvimos — en 7 días hábiles teníamos la empresa en Estados Unidos y la cuenta bancaria lista.",
+    text: "Necesitaba ordenar cobros de YouTube y pagos a colaboradores. Con la LLC pudimos resolverlo y dejar empresa y cuenta listas.",
     name: "Matias Bottero",
     country: "Entre Suculentas · Youtuber",
     role: "",
@@ -187,7 +187,7 @@ export const elegirReviews = [
   },
   {
     stars: "★★★★★",
-    text: "Excelentes profesionales. El proceso fue súper rápido y sin complicaciones. Totalmente recomendable.",
+    text: "Muy buen equipo profesional. El proceso fue rápido, ordenado y sin complicaciones innecesarias.",
     name: "Martin Poblet",
     country: "Argentina 🇦🇷",
     role: "Emprendedor",
@@ -209,31 +209,31 @@ export const homeFaqItems: FaqItem[] = [
   {
     question: "¿Necesito ser residente en EE.UU. para abrir una LLC?",
     answer:
-      "No. Cualquier persona en el mundo puede abrir una LLC en EE.UU. sin ser residente ni ciudadano. Solo necesitás tu pasaporte vigente y nosotros nos encargamos del resto.",
+      "No. Podés abrir una LLC en EE.UU. sin residencia ni ciudadanía. Con tu pasaporte vigente alcanza para iniciar el proceso.",
   },
   {
     question: "¿Cuánto tiempo tarda el proceso?",
     answer:
-      "La LLC queda activa en 5-7 días hábiles. La cuenta bancaria puede tardar entre 3 y 10 días adicionales según el banco elegido (Mercury, Relay o Lili Bank).",
+      "La LLC suele quedar activa en 5 a 7 días hábiles. La apertura bancaria puede sumar algunos días según el banco elegido.",
   },
   {
     question: "¿Qué impuestos pago en EE.UU.?",
     answer:
-      "Como no residente con una Single Member LLC sin presencia física ni actividad en EE.UU., generalmente no pagás impuestos federales norteamericanos. Te asesoramos en tu caso específico.",
+      "Depende de tu estructura y residencia fiscal. En muchos casos, una Single Member LLC de no residente sin actividad física en EE.UU. no paga impuesto federal sobre renta de fuente extranjera.",
   },
   {
     question: "¿Qué estado me recomiendan para abrir la LLC?",
     answer:
-      "Trabajamos principalmente con Wyoming y Nuevo México. Ambos tienen costos bajos, sin impuesto estatal y procesos rápidos. En la llamada de evaluación te recomendamos el que mejor se adapta a tu caso.",
+      "Wyoming y Nuevo México suelen ser buenas opciones por costos, privacidad y mantenimiento. En la llamada definimos cuál encaja mejor con tu caso.",
   },
   {
     question: "¿Cuánto cuesta abrir la LLC?",
     answer:
-      "Nuestros planes arrancan en $599 USD, incluyendo la formación de la LLC, EIN, Registered Agent y cuenta bancaria.",
+      "Los planes comienzan en $599 USD e incluyen formación de la LLC, EIN, Registered Agent y acompañamiento bancario.",
   },
   {
     question: "¿Qué pasa con mis impuestos en mi país?",
     answer:
-      "Eso depende de las leyes fiscales de tu país de residencia. En la llamada de evaluación te orientamos sobre las implicancias fiscales en tu país específico.",
+      "Depende de tu residencia fiscal y de las reglas locales. En la evaluación revisamos los puntos principales para tu país.",
   },
 ];

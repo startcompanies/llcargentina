@@ -14,11 +14,11 @@ export async function generateMetadata(): Promise<Metadata> {
     return {
       title: 'LLC Argentina - Open your U.S. LLC from Latin America',
       description:
-        'We form your LLC and open your bank account with Mercury, Relay, or Lili Bank. 100% online in 7 business days. No residency or travel required.',
+        'We create your U.S. LLC and guide your banking setup with Mercury, Relay, or Lili Bank. Online process, no residency or travel required.',
       alternates: { canonical: alts.en, languages: { es: alts.es, en: alts.en } },
       openGraph: {
         title: 'LLC Argentina - Open your U.S. LLC from Latin America',
-        description: 'We form your LLC and open your bank account with Mercury, Relay, or Lili Bank. 100% online in 7 business days.',
+        description: 'We create your U.S. LLC and guide your banking setup with Mercury, Relay, or Lili Bank. Online process, no travel required.',
         locale: 'en_US'
       }
     };
@@ -27,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'LLC Argentina - Abrí tu LLC en EE.UU. desde LATAM',
     description:
-      'Formamos tu LLC y abrimos tu cuenta bancaria en Mercury, Relay o Lili Bank. 100% online en 7 días hábiles. Sin residencia ni viajes a EE.UU.',
+      'Creamos tu LLC en EE.UU. y te guiamos con la cuenta bancaria en Mercury, Relay o Lili Bank. Proceso online, sin residencia ni viajes.',
     alternates: { canonical: alts.es, languages: { es: alts.es, en: alts.en } }
   };
 }

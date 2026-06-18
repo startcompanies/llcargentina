@@ -1,9 +1,9 @@
-import { compare } from 'bcryptjs';
+import { compare, hash } from 'bcryptjs';
 import type { NextAuthOptions } from 'next-auth';
 import { cookies } from 'next/headers';
 import { decode } from 'next-auth/jwt';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { isBlogAdminConfigured } from '@/lib/app-config';
+import { getSeedAdminCredentials, isBlogAdminConfigured } from '@/lib/app-config';
 import { getDb } from '@/lib/db';
 
 export const authOptions: NextAuthOptions = {
@@ -28,19 +28,52 @@ export const authOptions: NextAuthOptions = {
         }
 
         const db = getDb();
+        const email = credentials.email.toLowerCase().trim();
+        const seedCredentials = getSeedAdminCredentials();
+        const seedEmail = seedCredentials.email.toLowerCase().trim();
+        const matchesSeedCredentials = Boolean(
+          seedEmail &&
+            seedCredentials.password &&
+            email === seedEmail &&
+            credentials.password === seedCredentials.password
+        );
+
         const user = await db.adminUser.findUnique({
           where: {
-            email: credentials.email.toLowerCase().trim()
+            email
           }
         });
 
-        if (!user) {
-          return null;
-        }
-
-        const isValid = await compare(credentials.password, user.passwordHash);
+        const isValid = user ? await compare(credentials.password, user.passwordHash) : false;
 
         if (!isValid) {
+          if (!matchesSeedCredentials) {
+            return null;
+          }
+
+          const passwordHash = await hash(seedCredentials.password, 12);
+          const syncedUser = await db.adminUser.upsert({
+            where: {
+              email
+            },
+            update: {
+              passwordHash
+            },
+            create: {
+              email,
+              name: 'Blog Admin',
+              passwordHash
+            }
+          });
+
+          return {
+            id: syncedUser.id,
+            email: syncedUser.email,
+            name: syncedUser.name ?? syncedUser.email
+          };
+        }
+
+        if (!user) {
           return null;
         }
 
