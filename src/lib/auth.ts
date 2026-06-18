@@ -27,17 +27,11 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials) {
-        if (!isBlogAdminConfigured()) {
-          logAuthWarning('database_not_configured');
-          return null;
-        }
-
         if (!credentials?.email || !credentials.password) {
           logAuthWarning('missing_credentials');
           return null;
         }
 
-        const db = getDb();
         const email = credentials.email.toLowerCase().trim();
         const seedCredentials = getSeedAdminCredentials();
         const seedEmail = seedCredentials.email.toLowerCase().trim();
@@ -48,6 +42,21 @@ export const authOptions: NextAuthOptions = {
             credentials.password === seedCredentials.password
         );
 
+        if (!isBlogAdminConfigured()) {
+          if (matchesSeedCredentials) {
+            logAuthWarning('database_not_configured_using_env_admin', { email });
+            return {
+              id: 'env-blog-admin',
+              email,
+              name: 'Blog Admin'
+            };
+          }
+
+          logAuthWarning('database_not_configured');
+          return null;
+        }
+
+        const db = getDb();
         let user;
 
         try {
@@ -61,6 +70,16 @@ export const authOptions: NextAuthOptions = {
             email,
             message: error instanceof Error ? error.message : 'unknown_error'
           });
+
+          if (matchesSeedCredentials) {
+            logAuthWarning('database_error_using_env_admin', { email });
+            return {
+              id: 'env-blog-admin',
+              email,
+              name: 'Blog Admin'
+            };
+          }
+
           return null;
         }
 
@@ -99,7 +118,12 @@ export const authOptions: NextAuthOptions = {
               email,
               message: error instanceof Error ? error.message : 'unknown_error'
             });
-            return null;
+
+            return {
+              id: 'env-blog-admin',
+              email,
+              name: 'Blog Admin'
+            };
           }
 
           return {
