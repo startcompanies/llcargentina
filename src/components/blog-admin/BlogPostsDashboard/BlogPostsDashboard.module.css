@@ -42,6 +42,7 @@
 .createButton,
 .exportButton,
 .importButton,
+.publishButton,
 .repairButton,
 .primaryAction,
 .secondaryAction,
@@ -62,6 +63,7 @@
 
 .createButton:hover,
 .importButton:hover,
+.publishButton:hover,
 .repairButton:hover,
 .primaryAction:hover,
 .secondaryAction:hover,
@@ -103,6 +105,22 @@
 }
 
 .importButton:disabled {
+  cursor: wait;
+  opacity: 0.62;
+  transform: none;
+}
+
+.publishButton {
+  padding: 0.64rem 0.88rem;
+  font-weight: 700;
+  border: 1px solid rgba(1, 201, 226, 0.3);
+  background: rgba(1, 201, 226, 0.16);
+  color: #dffcff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.publishButton:disabled {
   cursor: wait;
   opacity: 0.62;
   transform: none;

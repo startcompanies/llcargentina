@@ -68,6 +68,7 @@ export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
   const [query, setQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('ALL');
   const [isImporting, setIsImporting] = useState(false);
+  const [isPublishingAll, setIsPublishingAll] = useState(false);
   const [isRepairingImages, setIsRepairingImages] = useState(false);
   const [isRepairingLinks, setIsRepairingLinks] = useState(false);
   const [importStatus, setImportStatus] = useState<string | null>(null);
@@ -172,6 +173,29 @@ export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
     }
   }
 
+  async function handlePublishAll() {
+    setIsPublishingAll(true);
+    setImportStatus(null);
+
+    try {
+      const response = await fetch('/api/blog-admin/posts/publish-all', {
+        method: 'POST'
+      });
+      const payload = await response.json();
+
+      if (!response.ok) {
+        throw new Error(payload.error || 'No pudimos publicar los posts.');
+      }
+
+      setImportStatus(`Posts publicados: ${payload.updated}.`);
+      router.refresh();
+    } catch (error) {
+      setImportStatus(error instanceof Error ? error.message : 'No pudimos publicar los posts.');
+    } finally {
+      setIsPublishingAll(false);
+    }
+  }
+
   async function handleRepairLinks() {
     setIsRepairingLinks(true);
     setImportStatus(null);
@@ -221,6 +245,16 @@ export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
             onClick={() => importInputRef.current?.click()}
           >
             {isImporting ? 'Importando...' : 'Importar JSON'}
+          </button>
+          <button
+            type="button"
+            className={styles.publishButton}
+            disabled={isPublishingAll}
+            onClick={() => {
+              void handlePublishAll();
+            }}
+          >
+            {isPublishingAll ? 'Publicando...' : 'Publicar todos'}
           </button>
           <button
             type="button"

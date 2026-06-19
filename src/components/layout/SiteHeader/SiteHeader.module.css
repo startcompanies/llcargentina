@@ -41,6 +41,11 @@
   box-shadow: 0 1px 0 var(--border-light), var(--shadow-sm);
 }
 
+.lightPage .logo img {
+  filter: brightness(0) saturate(100%) invert(9%) sepia(17%) saturate(1857%) hue-rotate(169deg) brightness(94%)
+    contrast(98%);
+}
+
 /* ── NAV INNER ── */
 .navInner {
   display: flex;
