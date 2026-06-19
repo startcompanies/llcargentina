@@ -31,7 +31,8 @@ function getS3Client() {
 function getS3Config() {
   const bucket = process.env.S3_BUCKET_NAME?.trim();
   if (!bucket) throw new Error('S3_BUCKET_NAME is not set');
-  return { bucket };
+  const publicUrl = process.env.S3_PUBLIC_URL?.trim().replace(/\/+$/, '');
+  return { bucket, publicUrl };
 }
 
 function sanitizeFileName(value: string) {
@@ -61,7 +62,7 @@ function extensionFromMimeType(mimeType?: string) {
 }
 
 export async function storeMediaFile(input: StoredMediaInput): Promise<StoredMediaResult> {
-  const { bucket } = getS3Config();
+  const { bucket, publicUrl } = getS3Config();
 
   const originalName = sanitizeFileName(input.fileName || 'asset');
   const extension = extensionFromFileName(originalName) || extensionFromMimeType(input.mimeType) || '.bin';
@@ -80,7 +81,7 @@ export async function storeMediaFile(input: StoredMediaInput): Promise<StoredMed
 
   return {
     storageKey,
-    url: `/uploads/blog/${fileName}`,
+    url: publicUrl ? `${publicUrl}/${storageKey}` : `/uploads/blog/${fileName}`,
     mimeType: input.mimeType,
     fileName: input.fileName || fileName,
     sizeBytes: input.buffer.byteLength,
