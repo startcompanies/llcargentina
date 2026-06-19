@@ -10,7 +10,7 @@ type BrandLogoProps = {
 
 const toneToSrc = {
   dark: '/brand/llc-argentina-white-text.svg',
-  light: '/brand/llc-argentina-white-text.svg',
+  light: '/brand/llc-argentina-dark-text.svg',
   'full-white': '/brand/llc-argentina-white-text.svg'
 } as const;
 
