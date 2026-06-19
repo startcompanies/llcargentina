@@ -1,5 +1,6 @@
 import { CategoryIcon, PostSectionType, type PostSection } from '@prisma/client';
 import { load } from 'cheerio';
+import { panelUrl } from '@/lib/panel-links';
 import sanitizeHtml from 'sanitize-html';
 import { normalizeBlogHref } from '@/lib/blog-routes';
 
@@ -274,7 +275,7 @@ export function renderCtaSection(type: PostSectionType | 'CTA_CONSULTATION' | 'C
         <h2>¿Querés abrir tu LLC con acompañamiento?</h2>
         <p class="cta-box-copy">Nuestro equipo contable y tributario te guía en la apertura, el EIN, la banca y el cumplimiento inicial.</p>
         <div class="cta-box-actions">
-          <a class="btn-cta btn-cta-primary" href="https://panel.llcargentina.io/apertura-llc">
+          <a class="btn-cta btn-cta-primary" href="${panelUrl('apertura-llc')}">
             <span>Abrir mi LLC desde $599</span>
             <span aria-hidden="true">→</span>
           </a>

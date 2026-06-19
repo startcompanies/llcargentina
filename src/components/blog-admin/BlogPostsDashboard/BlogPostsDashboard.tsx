@@ -70,6 +70,7 @@ export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
   const [isImporting, setIsImporting] = useState(false);
   const [isPublishingAll, setIsPublishingAll] = useState(false);
   const [isRepairingImages, setIsRepairingImages] = useState(false);
+  const [isRepairingInternalImages, setIsRepairingInternalImages] = useState(false);
   const [isRepairingLinks, setIsRepairingLinks] = useState(false);
   const [importStatus, setImportStatus] = useState<string | null>(null);
   const deferredQuery = useDeferredValue(query);
@@ -173,6 +174,31 @@ export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
     }
   }
 
+  async function handleRepairInternalImages() {
+    setIsRepairingInternalImages(true);
+    setImportStatus(null);
+
+    try {
+      const response = await fetch('/api/blog-admin/posts/repair-internal-images', {
+        method: 'POST'
+      });
+      const payload = await response.json();
+
+      if (!response.ok) {
+        throw new Error(payload.error || 'No pudimos reparar las imágenes internas.');
+      }
+
+      setImportStatus(
+        `Imágenes internas reparadas: ${payload.mediaAssetsUpdated} assets y ${payload.sectionsUpdated} secciones actualizadas.`
+      );
+      router.refresh();
+    } catch (error) {
+      setImportStatus(error instanceof Error ? error.message : 'No pudimos reparar las imágenes internas.');
+    } finally {
+      setIsRepairingInternalImages(false);
+    }
+  }
+
   async function handlePublishAll() {
     setIsPublishingAll(true);
     setImportStatus(null);
@@ -265,6 +291,16 @@ export function BlogPostsDashboard({ posts }: BlogPostsDashboardProps) {
             }}
           >
             {isRepairingImages ? 'Reparando...' : 'Reparar imágenes'}
+          </button>
+          <button
+            type="button"
+            className={styles.repairButton}
+            disabled={isRepairingInternalImages}
+            onClick={() => {
+              void handleRepairInternalImages();
+            }}
+          >
+            {isRepairingInternalImages ? 'Reparando...' : 'Reparar imágenes internas'}
           </button>
           <button
             type="button"
