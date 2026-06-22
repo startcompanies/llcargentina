@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { BlogIndexPage } from '@/components/blog/BlogIndexPage/BlogIndexPage';
 import { getBlogIndexContent } from '@/lib/blog-content';
 import { getLocale } from '@/i18n/get-locale';
+import { siteUrl } from '@/i18n/config';
 
 export const dynamic = 'force-dynamic';
 
@@ -13,8 +14,8 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
   const params = await searchParams;
   const page = Math.max(1, Number(params.page) || 1);
   const canonical = page > 1
-    ? `https://llcargentina.com/blog?page=${page}`
-    : 'https://llcargentina.com/blog';
+    ? `${siteUrl}/blog?page=${page}`
+    : `${siteUrl}/blog`;
 
   return {
     title: 'Blog',

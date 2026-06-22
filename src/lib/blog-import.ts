@@ -6,6 +6,7 @@ import { normalizeImportedImageHtml, normalizeImportedImageUrl } from '@/lib/blo
 import { escapeHtml, estimateReadingTimeFromHtml, renderPostSectionsHtml, sanitizePostHtml } from '@/lib/blog-html';
 import { normalizeBlogHref } from '@/lib/blog-routes';
 import { getDb } from '@/lib/db';
+import { siteUrl } from '@/i18n/config';
 import { slugify } from '@/lib/slug';
 
 const STARTCOMPANIES_ORIGIN_PATTERN = /^https?:\/\/(www\.)?startcompanies\.io/i;
@@ -77,12 +78,12 @@ function normalizeStartCompaniesUrl(value: string | undefined) {
     return undefined;
   }
 
-  return normalized.replace(STARTCOMPANIES_ORIGIN_PATTERN, 'https://llcargentina.com');
+  return normalized.replace(STARTCOMPANIES_ORIGIN_PATTERN, siteUrl);
 }
 
 function normalizeVisibleText(value: string) {
   return value
-    .replace(STARTCOMPANIES_ORIGIN_PATTERN, 'https://llcargentina.com')
+    .replace(STARTCOMPANIES_ORIGIN_PATTERN, siteUrl)
     .replace(STARTCOMPANIES_TEXT_PATTERN, 'LLC Argentina');
 }
 
@@ -141,7 +142,7 @@ function parsePublishedAt(value: string | undefined) {
 
 function fileNameFromUrl(url: string) {
   try {
-    const parsed = new URL(url, 'https://llcargentina.com');
+    const parsed = new URL(url, siteUrl);
     return parsed.pathname.split('/').pop() || 'asset';
   } catch {
     return url.split('/').pop()?.split('?')[0] || 'asset';

@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
+import { siteUrl } from "@/i18n/config";
 import { isStagingHost, NOINDEX_VALUE } from "@/lib/noindex-headers";
 
 const productionRobots = `
 User-agent: *
 Allow: /
-Sitemap: https://llcargentina.com/sitemap.xml
-Sitemap: https://llcargentina.com/sitemap-blog.xml
+Sitemap: ${siteUrl}/sitemap.xml
+Sitemap: ${siteUrl}/sitemap-blog.xml
 `;
 
 const stagingRobots = `User-agent: *

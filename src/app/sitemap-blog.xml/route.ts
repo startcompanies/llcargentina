@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAllBlogArticlesFromDatabase } from '@/lib/blog-content-db';
+import { siteUrl } from '@/i18n/config';
 import { isStagingHost, NOINDEX_VALUE } from '@/lib/noindex-headers';
 
 export const dynamic = 'force-dynamic';
-
-const siteUrl = 'https://llcargentina.com';
 
 export async function GET(request: NextRequest) {
   let articles: Awaited<ReturnType<typeof getAllBlogArticlesFromDatabase>> = [];

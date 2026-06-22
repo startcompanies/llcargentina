@@ -1,11 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAllBlogArticlesFromDatabase, getPublishedCategorySlugsFromDatabase } from '@/lib/blog-content-db';
-import { getLocalizedPath } from '@/i18n/config';
+import { getLocalizedPath, siteUrl } from '@/i18n/config';
 import { isStagingHost, NOINDEX_VALUE } from '@/lib/noindex-headers';
 
 export const dynamic = 'force-dynamic';
-
-const siteUrl = 'https://llcargentina.com';
 
 function urlEntry(
   esPath: string,

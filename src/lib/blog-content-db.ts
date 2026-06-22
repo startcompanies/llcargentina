@@ -15,6 +15,7 @@ import {
   renderPostSectionsHtml
 } from '@/lib/blog-html';
 import { getBlogPostPath, normalizeBlogHref } from '@/lib/blog-routes';
+import { siteUrl } from '@/i18n/config';
 import type {
   BlogArticle,
   BlogCategoryPageData,
@@ -24,8 +25,6 @@ import type {
   BlogSidebarCategory,
   RelatedArticle
 } from '@/lib/blog-content';
-
-const siteUrl = 'https://llcargentina.com';
 
 type DatabasePost = Post & {
   categories: Category[];
@@ -218,7 +217,7 @@ function buildJsonLd(post: DatabasePost) {
       name: 'LLC Argentina',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://llcargentina.com/brand/llc-argentina-white-text.svg'
+        url: `${siteUrl}/brand/llc-argentina-white-text.svg`
       }
     }
   });

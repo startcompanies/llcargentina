@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import type { Locale } from '@/i18n/config';
+import { siteUrl, type Locale } from '@/i18n/config';
 import styles from './ShareButtons.module.css';
 
 type ShareButtonsProps = {
@@ -19,7 +19,7 @@ export function ShareButtons({ title, slug, locale }: ShareButtonsProps) {
 
   function getUrl() {
     if (typeof window !== 'undefined') return window.location.href;
-    return `${process.env.NEXT_PUBLIC_SITE_URL ?? ''}/blog/${slug}`;
+    return `${process.env.NEXT_PUBLIC_SITE_URL ?? siteUrl}/blog/${slug}`;
   }
 
   function handleCopy() {

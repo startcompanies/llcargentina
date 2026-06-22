@@ -3,6 +3,8 @@ import type { NextRequest } from 'next/server';
 import { isStagingHost, NOINDEX_VALUE } from '@/lib/noindex-headers';
 
 const enToEs: Record<string, string> = {};
+const APEX_HOST = 'llcargentina.com';
+const WWW_HOST = 'www.llcargentina.com';
 
 function buildResponse(request: NextRequest): NextResponse {
   const { pathname } = request.nextUrl;
@@ -51,9 +53,16 @@ function buildResponse(request: NextRequest): NextResponse {
 }
 
 export function middleware(request: NextRequest) {
+  const host = request.headers.get('host') ?? '';
+
+  if (host === APEX_HOST) {
+    const url = request.nextUrl.clone();
+    url.hostname = WWW_HOST;
+    return NextResponse.redirect(url, 308);
+  }
+
   const response = buildResponse(request);
 
-  const host = request.headers.get('host') ?? '';
   if (isStagingHost(host)) {
     response.headers.set('X-Robots-Tag', NOINDEX_VALUE);
   }

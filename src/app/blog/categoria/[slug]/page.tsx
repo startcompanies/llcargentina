@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { BlogCategoryPage } from '@/components/blog/BlogCategoryPage/BlogCategoryPage';
 import { getBlogCategoryContent } from '@/lib/blog-content';
 import { getLocale } from '@/i18n/get-locale';
+import { siteUrl } from '@/i18n/config';
 
 export const dynamic = 'force-dynamic';
 
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: CategoriaSlugPageProps): Prom
   const data = await getBlogCategoryContent(slug);
   if (!data) return {};
 
-  const canonical = `https://llcargentina.com/blog/categoria/${slug}`;
+  const canonical = `${siteUrl}/blog/categoria/${slug}`;
 
   return {
     title: `${data.categoryName} - Blog`,

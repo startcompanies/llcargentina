@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { BlogArticlePage } from '@/components/blog/BlogArticlePage/BlogArticlePage';
 import { getBlogArticleBySlug, getRelatedArticles } from '@/lib/blog-content';
 import { getLocale } from '@/i18n/get-locale';
+import { siteUrl } from '@/i18n/config';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: BlogSlugPageProps): Promise<M
 
   if (!article) return {};
 
-  const canonical = article.canonicalUrl || `https://llcargentina.com/blog/${slug}`;
+  const canonical = article.canonicalUrl || `${siteUrl}/blog/${slug}`;
   const title = article.metaTitle || article.title;
   const description = article.metaDescription || article.description;
 

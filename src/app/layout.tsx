@@ -5,9 +5,7 @@ import { inter } from '@/lib/fonts';
 import { getLocale } from '@/i18n/get-locale';
 import { LocaleProvider } from '@/i18n/LocaleProvider';
 import { CursorDot } from '@/components/common/CursorDot/CursorDot';
-import type { Locale } from '@/i18n/config';
-
-const siteUrl = 'https://llcargentina.com';
+import { siteUrl, type Locale } from '@/i18n/config';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
