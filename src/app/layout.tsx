@@ -125,7 +125,7 @@ function getWebsiteSchema(locale: Locale) {
     availableLanguage: ['es', 'en'],
     potentialAction: {
       '@type': 'SearchAction',
-      target: `${siteUrl}/blog?q={search_term_string}`,
+      target: `${siteUrl}/noticias?q={search_term_string}`,
       'query-input': 'required name=search_term_string'
     }
   };

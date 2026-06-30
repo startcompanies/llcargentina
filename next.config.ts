@@ -3,6 +3,8 @@ import { fileURLToPath } from 'node:url';
 import type { NextConfig } from 'next';
 
 const projectRoot = path.dirname(fileURLToPath(import.meta.url));
+const legacyHosts = ['llcargentina.com', 'www.llcargentina.com'];
+const canonicalOrigin = 'https://www.startcompanies.io';
 
 const nextConfig: NextConfig = {
   output: 'standalone',
@@ -35,7 +37,47 @@ const nextConfig: NextConfig = {
     ],
   },
   async redirects() {
+    const legacyHostRedirects = legacyHosts.flatMap((host) => [
+      {
+        source: '/blog/noticias/:slug*',
+        has: [{ type: 'host' as const, value: host }],
+        destination: `${canonicalOrigin}/noticias/:slug*`,
+        statusCode: 301,
+      },
+      {
+        source: '/blog/categoria/llc',
+        has: [{ type: 'host' as const, value: host }],
+        destination: `${canonicalOrigin}/noticias/categoria/abrir-llc`,
+        statusCode: 301,
+      },
+      {
+        source: '/blog/categoria/:slug*',
+        has: [{ type: 'host' as const, value: host }],
+        destination: `${canonicalOrigin}/noticias/categoria/:slug*`,
+        statusCode: 301,
+      },
+      {
+        source: '/blog',
+        has: [{ type: 'host' as const, value: host }],
+        destination: `${canonicalOrigin}/noticias`,
+        statusCode: 301,
+      },
+      {
+        source: '/blog/:slug*',
+        has: [{ type: 'host' as const, value: host }],
+        destination: `${canonicalOrigin}/noticias/:slug*`,
+        statusCode: 301,
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'host' as const, value: host }],
+        destination: `${canonicalOrigin}/:path*`,
+        statusCode: 301,
+      },
+    ]);
+
     return [
+      ...legacyHostRedirects,
       {
         source: '/blog/noticias/:slug*',
         destination: '/blog/:slug*',

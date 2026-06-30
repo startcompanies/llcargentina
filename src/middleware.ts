@@ -3,8 +3,32 @@ import type { NextRequest } from 'next/server';
 import { isStagingHost, NOINDEX_VALUE } from '@/lib/noindex-headers';
 
 const enToEs: Record<string, string> = {};
-const APEX_HOST = 'llcargentina.com';
-const WWW_HOST = 'www.llcargentina.com';
+const LEGACY_HOSTS = new Set(['llcargentina.com', 'www.llcargentina.com']);
+const CANONICAL_HOST = 'www.startcompanies.io';
+
+function getCanonicalPathname(pathname: string) {
+  if (pathname === '/blog') {
+    return '/noticias';
+  }
+
+  if (pathname.startsWith('/blog/noticias/')) {
+    return pathname.replace('/blog/noticias/', '/noticias/');
+  }
+
+  if (pathname === '/blog/categoria/llc') {
+    return '/noticias/categoria/abrir-llc';
+  }
+
+  if (pathname.startsWith('/blog/categoria/')) {
+    return pathname.replace('/blog/categoria/', '/noticias/categoria/');
+  }
+
+  if (pathname.startsWith('/blog/')) {
+    return pathname.replace('/blog/', '/noticias/');
+  }
+
+  return pathname;
+}
 
 function buildResponse(request: NextRequest): NextResponse {
   const { pathname } = request.nextUrl;
@@ -55,10 +79,12 @@ function buildResponse(request: NextRequest): NextResponse {
 export function middleware(request: NextRequest) {
   const host = request.headers.get('host') ?? '';
 
-  if (host === APEX_HOST) {
+  if (LEGACY_HOSTS.has(host)) {
     const url = request.nextUrl.clone();
-    url.hostname = WWW_HOST;
-    return NextResponse.redirect(url, 308);
+    url.protocol = 'https:';
+    url.hostname = CANONICAL_HOST;
+    url.pathname = getCanonicalPathname(url.pathname);
+    return NextResponse.redirect(url, 301);
   }
 
   const response = buildResponse(request);
