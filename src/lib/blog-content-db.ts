@@ -41,8 +41,32 @@ function absoluteSiteUrl(path: string) {
   return `${siteUrl}${path.startsWith('/') ? path : `/${path}`}`;
 }
 
+function getPublicBlogPostPath(slug: string) {
+  return `/noticias/${slug.replace(/^\/+|\/+$/g, '')}`;
+}
+
+function toPublicBlogPath(path: string) {
+  if (path === '/blog') {
+    return '/noticias';
+  }
+
+  if (path.startsWith('/blog/noticias/')) {
+    return path.replace('/blog/noticias/', '/noticias/');
+  }
+
+  if (path.startsWith('/blog/categoria/')) {
+    return path.replace('/blog/categoria/', '/noticias/categoria/');
+  }
+
+  if (path.startsWith('/blog/')) {
+    return path.replace('/blog/', '/noticias/');
+  }
+
+  return path;
+}
+
 function postCanonicalUrl(post: PostCanonicalSource) {
-  const fallback = absoluteSiteUrl(getBlogPostPath(post.slug));
+  const fallback = absoluteSiteUrl(getPublicBlogPostPath(post.slug));
   const normalized = normalizeBlogHref(post.canonicalUrl ?? undefined);
 
   if (!normalized || normalized.startsWith('#') || normalized.startsWith('?')) {
@@ -52,8 +76,15 @@ function postCanonicalUrl(post: PostCanonicalSource) {
   if (/^https?:\/\//i.test(normalized)) {
     try {
       const url = new URL(normalized);
-      if (url.hostname === 'llcargentina.com' || url.hostname === 'www.llcargentina.com' || url.hostname === 'llcargentina.io' || url.hostname === 'www.llcargentina.io') {
-        return absoluteSiteUrl(`${url.pathname}${url.search}${url.hash}`);
+      if (
+        url.hostname === 'llcargentina.com' ||
+        url.hostname === 'www.llcargentina.com' ||
+        url.hostname === 'llcargentina.io' ||
+        url.hostname === 'www.llcargentina.io' ||
+        url.hostname === 'startcompanies.io' ||
+        url.hostname === 'www.startcompanies.io'
+      ) {
+        return absoluteSiteUrl(`${toPublicBlogPath(url.pathname)}${url.search}${url.hash}`);
       }
     } catch {
       return fallback;
@@ -63,7 +94,7 @@ function postCanonicalUrl(post: PostCanonicalSource) {
   }
 
   if (normalized.startsWith('/')) {
-    return absoluteSiteUrl(normalized);
+    return absoluteSiteUrl(toPublicBlogPath(normalized));
   }
 
   return fallback;

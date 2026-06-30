@@ -43,7 +43,7 @@ export async function GET(request: NextRequest) {
 
   const staticEntries = [
     urlEntry('/', now, 'weekly', '1.0'),
-    urlEntryEsOnly('/blog', now, 'daily', '0.8'),
+    urlEntryEsOnly('/noticias', now, 'daily', '0.8'),
   ];
 
   let blogEntries: string[] = [];
@@ -57,10 +57,10 @@ export async function GET(request: NextRequest) {
       const lastmod = article.publishedTime
         ? new Date(article.publishedTime).toISOString()
         : now;
-      return urlEntryEsOnly(`/blog/${article.slug}`, lastmod, 'monthly', '0.7');
+      return urlEntryEsOnly(`/noticias/${article.slug}`, lastmod, 'monthly', '0.7');
     });
     categoryEntries = categorySlugs.map((slug) =>
-      urlEntryEsOnly(`/blog/categoria/${slug}`, now, 'weekly', '0.6')
+      urlEntryEsOnly(`/noticias/categoria/${slug}`, now, 'weekly', '0.6')
     );
   } catch {
     // DB unavailable — return static pages only

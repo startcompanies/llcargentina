@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: CategoriaSlugPageProps): Prom
   const data = await getBlogCategoryContent(slug);
   if (!data) return {};
 
-  const canonical = `${siteUrl}/blog/categoria/${slug}`;
+  const canonical = `${siteUrl}/noticias/categoria/${slug}`;
 
   return {
     title: `${data.categoryName} - Blog`,

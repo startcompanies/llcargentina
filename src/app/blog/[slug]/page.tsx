@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: BlogSlugPageProps): Promise<M
 
   if (!article) return {};
 
-  const canonical = article.canonicalUrl || `${siteUrl}/blog/${slug}`;
+  const canonical = article.canonicalUrl || `${siteUrl}/noticias/${slug}`;
   const title = article.metaTitle || article.title;
   const description = article.metaDescription || article.description;
 

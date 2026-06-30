@@ -2,7 +2,7 @@ export type Locale = 'es' | 'en';
 export const defaultLocale: Locale = 'es';
 export const locales: Locale[] = ['es', 'en'];
 
-export const siteUrl = 'https://www.llcargentina.com';
+export const siteUrl = 'https://www.startcompanies.io';
 
 /** English slug → Spanish file-system route */
 export const enToEsRouteMap: Record<string, string> = {};

@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
   }
 
   const urls = articles.map((article) => {
-    const path = `/blog/${article.slug}`;
+    const path = `/noticias/${article.slug}`;
     const lastmod = article.publishedTime
       ? new Date(article.publishedTime).toISOString()
       : new Date().toISOString();

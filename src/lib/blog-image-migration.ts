@@ -1,7 +1,7 @@
 import { load } from 'cheerio';
 import { getDb } from '@/lib/db';
 
-const STARTCOMPANIES_ORIGIN = 'https://startcompanies.io';
+const STARTCOMPANIES_ORIGIN = 'https://www.startcompanies.io';
 const INTERNAL_IMAGE_HOSTS = new Set([
   'llcargentina.com',
   'www.llcargentina.com',

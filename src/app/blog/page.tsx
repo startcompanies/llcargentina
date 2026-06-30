@@ -14,8 +14,8 @@ export async function generateMetadata({ searchParams }: BlogPageProps): Promise
   const params = await searchParams;
   const page = Math.max(1, Number(params.page) || 1);
   const canonical = page > 1
-    ? `${siteUrl}/blog?page=${page}`
-    : `${siteUrl}/blog`;
+    ? `${siteUrl}/noticias?page=${page}`
+    : `${siteUrl}/noticias`;
 
   return {
     title: 'Blog',

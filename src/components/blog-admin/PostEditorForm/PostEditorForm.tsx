@@ -570,7 +570,7 @@ export function PostEditorForm({
 
             <label className={styles.field}>
               <span>Canonical URL</span>
-              <input type="url" name="canonicalUrl" defaultValue={initialPost.canonicalUrl} placeholder="https://www.llcargentina.com/blog/slug" />
+              <input type="url" name="canonicalUrl" defaultValue={initialPost.canonicalUrl} placeholder="https://www.startcompanies.io/noticias/slug" />
             </label>
 
             <label className={styles.field}>

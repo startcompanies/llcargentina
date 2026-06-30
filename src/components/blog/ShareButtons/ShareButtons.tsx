@@ -18,8 +18,7 @@ export function ShareButtons({ title, slug, locale }: ShareButtonsProps) {
   useEffect(() => () => { clearTimeout(copyTimerRef.current); }, []);
 
   function getUrl() {
-    if (typeof window !== 'undefined') return window.location.href;
-    return `${process.env.NEXT_PUBLIC_SITE_URL ?? siteUrl}/blog/${slug}`;
+    return `${siteUrl}/noticias/${slug}`;
   }
 
   function handleCopy() {
