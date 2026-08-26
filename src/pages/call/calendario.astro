@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { calUrl } from '../../data/site';
+const fallback = calUrl('call_calendario');
+---
+<BaseLayout title="Redirigiendo al calendario" description="Agenda una conversación sobre la apertura de tu LLC." canonical="/call/calendario" noindex={true}>
+  <section class="not-found"><div class="wrap"><span class="kicker">Un momento</span><h1 class="title">Te estamos llevando al calendario.</h1><p>Si la redirección no comienza, <a id="fallbackLink" href={fallback}><u>abrí el calendario acá</u></a>.</p></div></section>
+  <script define:vars={{ fallback }} is:inline>
+    (() => {
+      const incoming = new URLSearchParams(location.search);
+      const safe = (incoming.get('utm_content') || 'call_calendario').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '') || 'call_calendario';
+      const target = new URL(fallback);
+      target.searchParams.set('utm_content', safe);
+      target.searchParams.set('landing_path', '/call/calendario');
+      target.searchParams.set('landing_url', location.origin + '/call/calendario');
+      const link = document.getElementById('fallbackLink');
+      if (link) link.href = target.toString();
+      location.replace(target.toString());
+    })();
+  </script>
+</BaseLayout>

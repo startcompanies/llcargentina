@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { categories, posts } from '../../data/posts';
+import { site } from '../../data/site';
+
+const jsonLd = {
+  '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Guías para abrir y gestionar una LLC', url: `${site.url}/guias`, inLanguage: 'es-419',
+  mainEntity: { '@type': 'ItemList', itemListElement: posts.map((post, index) => ({ '@type': 'ListItem', position: index + 1, url: `${site.url}/guias/${post.slug}`, name: post.title })) },
+};
+---
+<BaseLayout title="Guías para abrir y gestionar una LLC" description="Guías claras sobre apertura de LLC, EIN, bancos, documentos y cumplimiento para emprendedores y profesionales de Latinoamérica." canonical="/guias" jsonLd={jsonLd}>
+  <header class="page-hero"><div class="wrap"><span class="kicker">Biblioteca LLC Argentina</span><h1 class="display">Entender primero.<br /><em>Decidir después.</em></h1><p class="lede">Contenido original para evaluar, abrir y mantener una LLC sin perderte entre siglas, promesas y trámites desconectados.</p></div></header>
+  <section class="section section--paper">
+    <div class="wrap">
+      <div class="filters" aria-label="Filtrar guías por tema">
+        {categories.map((category, index) => <button class:list={['filter', { active: index === 0 }]} type="button" data-filter={category} aria-pressed={index === 0 ? 'true' : 'false'}>{category}</button>)}
+      </div>
+      <div class="blog-grid" id="postGrid">{posts.map((post, index) => <BlogCard post={post} index={index} />)}</div>
+      <p id="emptyState" hidden>No hay guías en esta categoría.</p>
+    </div>
+  </section>
+  <script>
+    const buttons = document.querySelectorAll('[data-filter]');
+    const cards = document.querySelectorAll('[data-category]');
+    const empty = document.querySelector('#emptyState');
+    buttons.forEach((button) => button.addEventListener('click', () => {
+      const category = button.getAttribute('data-filter');
+      buttons.forEach((item) => { item.classList.toggle('active', item === button); item.setAttribute('aria-pressed', String(item === button)); });
+      let visible = 0;
+      cards.forEach((card) => { const show = category === 'Todas' || card.getAttribute('data-category') === category; card.toggleAttribute('hidden', !show); if (show) visible += 1; });
+      if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+    }));
+  </script>
+</BaseLayout>

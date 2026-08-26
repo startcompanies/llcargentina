@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7f3e8"/>
+  <path d="M0 0h1200v72H0z" fill="#18332d"/>
+  <g opacity=".14" stroke="#18332d"><path d="M0 126h1200M0 198h1200M0 270h1200M0 342h1200M0 414h1200M0 486h1200M0 558h1200"/><path d="M72 72v558M144 72v558M216 72v558M288 72v558M360 72v558M432 72v558M504 72v558M576 72v558M648 72v558M720 72v558M792 72v558M864 72v558M936 72v558M1008 72v558M1080 72v558M1152 72v558"/></g>
+  <circle cx="910" cy="320" r="205" fill="#c6f04d" stroke="#18332d" stroke-width="4"/>
+  <ellipse cx="910" cy="320" rx="240" ry="118" fill="none" stroke="#18332d" stroke-width="3" transform="rotate(-25 910 320)"/>
+  <rect x="775" y="168" width="270" height="318" rx="130" fill="#18332d" stroke="#18332d" stroke-width="5" transform="rotate(3 910 327)"/>
+  <rect x="835" y="225" width="112" height="112" rx="24" fill="#f7f3e8"/>
+  <g transform="translate(847 235) scale(.55)">
+    <path fill="#002d24" d="M24 79C24 41 53 15 94 15h62c-3 36-30 65-75 67-26 1-42 4-57 18V79Z"/>
+    <path fill="#cfe800" d="M21 104c16-16 35-21 66-21h44c-2 38-27 66-64 72-22 3-34 12-46 27v-78Z"/>
+  </g>
+  <circle cx="1030" cy="465" r="86" fill="#f7f3e8" stroke="#e45237" stroke-width="8"/>
+  <text x="1030" y="460" text-anchor="middle" fill="#e45237" font-family="Arial" font-size="22" font-weight="700">100% REMOTO</text>
+  <text x="88" y="180" fill="#e45237" font-family="Arial" font-size="18" font-weight="800" letter-spacing="3">LLC ARGENTINA · BY START COMPANIES</text>
+  <text x="84" y="282" fill="#18332d" font-family="Georgia" font-size="72">Tu negocio ya</text>
+  <text x="84" y="360" fill="#18332d" font-family="Georgia" font-size="72">cruza fronteras.</text>
+  <rect x="82" y="393" width="510" height="15" fill="#c6f04d"/>
+  <text x="88" y="466" fill="#18332d" font-family="Arial" font-size="24">LLC · EIN · Documentación · Ruta bancaria</text>
+</svg>

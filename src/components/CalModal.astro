@@ -1,0 +1,62 @@
+---
+import { calUrl } from '../data/site';
+---
+<div class="cal-modal" id="calModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="calTitle">
+  <div class="cal-backdrop" data-cal-close></div>
+  <div class="cal-panel" role="document">
+    <div class="cal-head">
+      <div><p>Primera conversación</p><h2 id="calTitle">Coordinemos tu hoja de ruta</h2></div>
+      <div class="cal-actions">
+        <a class="cal-external" id="calExternal" href={calUrl('modal_nueva_pestana')} target="_blank" rel="noopener noreferrer">Abrir en otra pestaña</a>
+        <button class="cal-close" type="button" data-cal-close aria-label="Cerrar calendario">×</button>
+      </div>
+    </div>
+    <iframe id="calFrame" title="Calendario para consultar por una LLC" src="about:blank" loading="lazy" allow="camera; microphone; fullscreen; payment"></iframe>
+  </div>
+</div>
+<script>
+  const modal = document.querySelector('#calModal');
+  const frame = document.querySelector('#calFrame');
+  const external = document.querySelector('#calExternal');
+  let previousFocus: Element | null = null;
+  const trackedUrl = (raw: string, content: string) => {
+    const url = new URL(raw, location.href);
+    if (content) url.searchParams.set('utm_content', content);
+    url.searchParams.set('landing_path', location.pathname);
+    url.searchParams.set('landing_url', location.href.split('#')[0]);
+    return url.toString();
+  };
+  const openModal = (raw: string, content: string) => {
+    if (!(modal instanceof HTMLElement) || !(frame instanceof HTMLIFrameElement)) return;
+    const url = trackedUrl(raw, content);
+    previousFocus = document.activeElement;
+    frame.src = url;
+    if (external instanceof HTMLAnchorElement) external.href = url;
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    modal.querySelector<HTMLButtonElement>('[data-cal-close].cal-close')?.focus({ preventScroll: true });
+  };
+  const closeModal = () => {
+    if (!(modal instanceof HTMLElement) || !(frame instanceof HTMLIFrameElement)) return;
+    modal.setAttribute('aria-hidden', 'true');
+    frame.src = 'about:blank';
+    document.body.classList.remove('modal-open');
+    if (previousFocus instanceof HTMLElement) previousFocus.focus({ preventScroll: true });
+  };
+  document.querySelectorAll('[data-cal-trigger]').forEach((trigger) => trigger.addEventListener('click', (event) => {
+    if (!(trigger instanceof HTMLAnchorElement)) return;
+    event.preventDefault();
+    openModal(trigger.dataset.calUrl || trigger.href, trigger.dataset.calContent || 'abrir_llc_cta');
+  }));
+  document.querySelectorAll('[data-cal-close]').forEach((element) => element.addEventListener('click', closeModal));
+  addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal?.getAttribute('aria-hidden') === 'false') closeModal();
+    if (event.key === 'Tab' && modal?.getAttribute('aria-hidden') === 'false') {
+      const focusable = [...modal.querySelectorAll<HTMLElement>('a[href], button, iframe')].filter((el) => !el.hasAttribute('disabled'));
+      if (!focusable.length) return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
+  });
+</script>

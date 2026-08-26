@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-labelledby="title desc">
+  <title id="title">Isologo de LLC Argentina</title>
+  <desc id="desc">Dos hojas superpuestas en verde profundo y lima.</desc>
+  <defs>
+    <linearGradient id="leafDark" x1="25" y1="18" x2="157" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#003c30"/><stop offset="1" stop-color="#00271f"/></linearGradient>
+    <linearGradient id="leafLime" x1="21" y1="97" x2="134" y2="166" gradientUnits="userSpaceOnUse"><stop stop-color="#e1f30b"/><stop offset="1" stop-color="#b6d600"/></linearGradient>
+  </defs>
+  <path fill="url(#leafDark)" d="M24 79C24 41 53 15 94 15h62c-3 36-30 65-75 67-26 1-42 4-57 18V79Z"/>
+  <path fill="url(#leafLime)" d="M21 104c16-16 35-21 66-21h44c-2 38-27 66-64 72-22 3-34 12-46 27v-78Z"/>
+  <path fill="none" stroke="#93b000" stroke-width="3" d="M22 104c21-15 49-18 83-16" opacity=".78"/>
+</svg>
