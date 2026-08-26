@@ -1,0 +1,18 @@
+---
+import { calPath, calUrl } from '../data/site';
+---
+<header class="site-header">
+  <div class="wrap nav">
+    <div class="brand-stack">
+      <a class="brand" href="/" aria-label="LLC Argentina by Start Companies, ir al inicio"><img src="/logo.svg" width="1090" height="240" alt="LLC Argentina by Start Companies" /></a>
+    </div>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="/#servicios">Qué resolvemos</a>
+      <a href="/#proceso">Proceso</a>
+      <a href="/#planes">Planes</a>
+      <a href="/guias">Guías</a>
+      <a class="btn btn--ink" href={calPath('nav_principal')} data-cal-trigger data-cal-content="nav_principal" data-cal-url={calUrl('nav_principal')}>Evaluar mi caso <span class="arrow">→</span></a>
+    </nav>
+    <button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+</header>

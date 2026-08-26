@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { posts } from '../data/posts';
+import { calPath, calUrl, site } from '../data/site';
+
+const services = [
+  ['Constitución con criterio', 'Registramos tu LLC en el estado que tenga sentido para tu operación y preparamos el paquete documental inicial.'],
+  ['EIN y documentación', 'Gestionamos el identificador federal y ordenamos Articles of Organization, Operating Agreement y constancias.'],
+  ['Ruta bancaria', 'Te ayudamos a preparar una solicitud coherente para proveedores de cuentas empresariales y medios de cobro.'],
+  ['Calendario de cumplimiento', 'Dejamos visibles los próximos hitos estatales y federales para que la empresa no quede librada a recordatorios sueltos.'],
+];
+const benefits = [
+  ['↗', 'Cobros más ordenados', 'Centralizá ingresos y gastos del negocio en una estructura separada de tus finanzas personales.'],
+  ['◎', 'Presencia comercial', 'Presentate ante clientes y proveedores globales con una entidad y documentación consistentes.'],
+  ['⌁', 'Operación remota', 'Completá el proceso desde tu país, sin depender de trámites presenciales en Estados Unidos.'],
+];
+const plans = [
+  { name: 'Base', label: 'Para empezar', price: '$599', text: 'Una estructura inicial para profesionales y negocios digitales de un solo titular.', items: ['Constitución de LLC', 'Registered Agent por 12 meses', 'Solicitud de EIN', 'Operating Agreement', 'Orientación para cuenta empresarial'], track: 'plan_base' },
+  { name: 'Operativa', label: 'Más elegido', price: '$850', text: 'Para quienes quieren salir con la documentación y la rutina operativa mejor resueltas.', items: ['Todo lo incluido en Base', 'Elección entre más estados', 'Hoja de ruta personalizada', 'Panel de gestión por 12 meses', 'Soporte prioritario'], track: 'plan_operativa', featured: true },
+  { name: 'Anual', label: 'Acompañamiento', price: '$1.450', text: 'Pensado para quien prefiere delegar el seguimiento del primer ciclo de la LLC.', items: ['Todo lo incluido en Operativa', 'Preparación informativa federal anual*', 'Renovación estatal incluida*', 'Panel de gestión por 24 meses', 'Responsable de cuenta'], track: 'plan_anual' },
+];
+const faqs = [
+  ['¿Tengo que vivir o viajar a Estados Unidos?', 'No. Una persona extranjera puede ser titular de una LLC y completar el proceso de manera remota. La elegibilidad de servicios bancarios se analiza por separado.'],
+  ['¿Qué estado conviene para registrar la LLC?', 'Depende de dónde se realiza la actividad, el costo de mantenimiento, la cantidad de socios y tus planes. En la llamada inicial revisamos esas variables antes de recomendar una ruta.'],
+  ['¿La apertura incluye una cuenta bancaria?', 'Incluye acompañamiento para preparar y presentar la solicitud en los planes indicados. La aprobación siempre queda a criterio del banco o proveedor financiero.'],
+  ['¿Una LLC significa que no pago impuestos?', 'No necesariamente. La tributación depende de la actividad, los titulares y la residencia fiscal. Además, pueden existir declaraciones informativas aunque no haya impuesto federal a pagar.'],
+  ['¿Qué pasa después de constituirla?', 'Hay que mantener vigente el Registered Agent, revisar obligaciones del estado, ordenar la contabilidad y presentar los formularios que correspondan. Te damos un mapa inicial para hacerlo visible.'],
+  ['¿Puedo abrirla con un socio?', 'Sí. Una LLC puede tener más de un miembro, pero eso cambia la documentación y normalmente también el esquema fiscal. Conviene definir porcentajes y reglas antes de presentar.'],
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'Organization', '@id': `${site.url}/#organization`, name: site.name, url: site.url, logo: `${site.url}/logo.svg`, description: site.description, email: site.email, telephone: site.phone, address: { '@type': 'PostalAddress', addressLocality: 'Miami', addressRegion: 'FL', addressCountry: 'US' } },
+    { '@type': 'WebSite', '@id': `${site.url}/#website`, url: site.url, name: site.name, inLanguage: 'es-419', publisher: { '@id': `${site.url}/#organization` } },
+    { '@type': 'Service', '@id': `${site.url}/#service`, name: 'Acompañamiento para apertura de LLC en Estados Unidos', serviceType: 'Constitución y gestión administrativa de LLC', areaServed: 'Latin America', provider: { '@id': `${site.url}/#organization` }, url: site.url, description: site.description },
+    { '@type': 'FAQPage', mainEntity: faqs.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) },
+  ],
+};
+---
+<BaseLayout title="Abrir una LLC en Estados Unidos" description="Abrí y organizá tu LLC en Estados Unidos desde Latinoamérica. Constitución, EIN, documentación, ruta bancaria y calendario de cumplimiento remoto." jsonLd={jsonLd}>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy reveal">
+        <span class="kicker">Infraestructura para negocios globales</span>
+        <h1 class="display">Tu negocio ya cruza fronteras. <span>Que su estructura también.</span></h1>
+        <p class="lede">Abrimos y ordenamos tu LLC en Estados Unidos: documentación, EIN, ruta bancaria y próximos pasos en un solo recorrido.</p>
+        <div class="hero-actions">
+          <a class="btn btn--ink" href={calPath('hero_evaluar')} data-cal-trigger data-cal-content="hero_evaluar" data-cal-url={calUrl('hero_evaluar')}>Evaluar mi caso <span class="arrow">→</span></a>
+          <a class="btn btn--ghost" href="#proceso">Ver cómo funciona</a>
+        </div>
+        <div class="hero-note"><span>Proceso remoto</span><span>Atención en español</span><span>Hoja de ruta clara</span></div>
+      </div>
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="orbit-ring orbit-ring--one"></div>
+        <div class="orbit-ring orbit-ring--two"></div>
+        <div class="orbit-core">
+          <div class="orbit-top"><span>US business stack</span><span class="live-dot">Activo</span></div>
+          <img class="orbit-mark" src="/isologo.svg" alt="" width="180" height="180" />
+          <p>Una estructura.<br /><strong>Cuatro piezas.</strong></p>
+          <div class="orbit-progress"><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="orbit-chip orbit-chip--entity"><b>01</b><span>Entidad<br /><small>LLC registrada</small></span></div>
+        <div class="orbit-chip orbit-chip--ein"><b>02</b><span>Identidad<br /><small>EIN federal</small></span></div>
+        <div class="orbit-chip orbit-chip--bank"><b>03</b><span>Operación<br /><small>Ruta bancaria</small></span></div>
+        <div class="orbit-coordinate">25.7617° N · 80.1918° W</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-label="Servicios incluidos"><div class="ticker-track">
+    {[...Array(2)].map(() => <><span>Constitución de LLC</span><span>EIN federal</span><span>Operating Agreement</span><span>Ruta bancaria</span><span>Cumplimiento anual</span></>)}
+  </div></div>
+
+  <section class="section" id="servicios">
+    <div class="wrap manifesto-grid">
+      <div class="manifesto-index reveal"><span class="kicker">Qué resolvemos</span><div class="big">4</div><p>piezas para pasar de “quiero abrir una LLC” a una operación entendible.</p></div>
+      <div class="service-list">
+        {services.map(([title, text], index) => <article class="service reveal"><span class="service-number">0{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ink" id="proceso">
+    <div class="wrap">
+      <div class="section-head reveal"><div><span class="kicker">El recorrido</span><h2 class="title">Menos trámites sueltos.<br /><em>Más secuencia.</em></h2></div><p class="lede">Cada etapa deja un entregable concreto y prepara la siguiente.</p></div>
+      <div class="process-grid reveal">
+        <article class="process-card"><h3>Entendemos el negocio</h3><p>Revisamos actividad, titulares, clientes y países involucrados.</p></article>
+        <article class="process-card"><h3>Definimos la estructura</h3><p>Elegimos estado y configuración con una mirada de costo total.</p></article>
+        <article class="process-card"><h3>Armamos el expediente</h3><p>Constitución, EIN y documentos centrales, ordenados y accesibles.</p></article>
+        <article class="process-card"><h3>Trazamos lo que sigue</h3><p>Ruta bancaria, controles operativos y calendario de mantenimiento.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="wrap">
+      <div class="section-head reveal"><div><span class="kicker">Por qué estructurarse</span><h2 class="title">Una LLC no es el destino.<br /><em>Es la plataforma.</em></h2></div></div>
+      <div class="benefit-grid">{benefits.map(([symbol, title, text]) => <article class="benefit reveal"><span class="benefit-symbol">{symbol}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+    </div>
+  </section>
+
+  <section class="section section--ink" id="planes">
+    <div class="wrap">
+      <div class="pricing-intro reveal"><div><span class="kicker">Alternativas</span><h2 class="title">Elegí cuánto querés <em>delegar.</em></h2></div><p class="price-note">Todos los planes comienzan con una revisión del caso. Si una LLC no parece adecuada para tu situación, te lo decimos antes de iniciar.</p></div>
+      <div class="plans">
+        {plans.map((plan) => <article class:list={['plan', { featured: plan.featured }, 'reveal']}>
+          <span class="plan-label">{plan.label}</span><h3>{plan.name}</h3><div class="price">{plan.price} <small>USD</small></div><p>{plan.text}</p>
+          <ul>{plan.items.map((item) => <li>{item}</li>)}</ul>
+          <a class:list={['btn', plan.featured ? 'btn--ink' : 'btn--cream']} href={calPath(plan.track)} data-cal-trigger data-cal-content={plan.track} data-cal-url={calUrl(plan.track)}>Consultar este plan <span class="arrow">→</span></a>
+        </article>)}
+      </div>
+      <p class="fine">* La preparación federal y la renovación dependen de la clasificación de la entidad, el estado y el alcance contratado. Los importes exhibidos son orientativos y se confirman antes de comenzar. Tasas extraordinarias o servicios de terceros pueden cotizarse por separado.</p>
+    </div>
+  </section>
+
+  <section class="section section--paper" id="guias">
+    <div class="wrap">
+      <div class="section-head reveal"><div><span class="kicker">Biblioteca abierta</span><h2 class="title">Decisiones con <em>contexto.</em></h2><p class="lede">Guías concretas para entender la vida real de una LLC antes y después de abrirla.</p></div><a class="btn btn--ghost" href="/guias">Ver todas las guías →</a></div>
+      <div class="blog-grid">{posts.slice(0, 3).map((post, index) => <BlogCard post={post} index={index} />)}</div>
+    </div>
+  </section>
+
+  <section class="section" id="preguntas">
+    <div class="wrap faq-layout">
+      <div class="reveal"><span class="kicker">Preguntas frecuentes</span><h2 class="title">Lo importante,<br /><em>sin letra chica.</em></h2></div>
+      <div class="faq-list reveal">{faqs.map(([question, answer]) => <details class="faq"><summary>{question}</summary><p>{answer}</p></details>)}</div>
+    </div>
+  </section>
+
+  <section class="section" id="contacto">
+    <div class="wrap"><div class="cta-panel reveal"><span class="kicker">Primer paso</span><h2 class="title">Contanos qué querés construir. Nosotros ordenamos el mapa.</h2><p>En una llamada inicial revisamos tu operación, respondemos dudas y definimos si una LLC encaja con el momento de tu negocio.</p><div class="cta-actions"><a class="btn btn--cream" href={calPath('cta_final')} data-cal-trigger data-cal-content="cta_final" data-cal-url={calUrl('cta_final')}>Agendar una conversación <span class="arrow">→</span></a><a class="btn btn--ghost" href={site.whatsapp} target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a></div></div></div>
+  </section>
+</BaseLayout>

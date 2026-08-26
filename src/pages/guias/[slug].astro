@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { posts, type Post } from '../../data/posts';
+import { calPath, calUrl, site } from '../../data/site';
+
+export function getStaticPaths() {
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+interface Props { post: Post; }
+const { post } = Astro.props;
+const related = posts.filter((item) => item.slug !== post.slug && item.category === post.category).concat(posts.filter((item) => item.slug !== post.slug && item.category !== post.category)).slice(0, 3);
+const jsonLd = {
+  '@context': 'https://schema.org', '@graph': [
+    { '@type': 'Article', headline: post.title, description: post.description, datePublished: post.date, dateModified: post.updated, inLanguage: 'es-419', mainEntityOfPage: `${site.url}/guias/${post.slug}`, author: { '@type': 'Organization', name: site.name, url: site.url }, publisher: { '@type': 'Organization', name: site.name, logo: { '@type': 'ImageObject', url: `${site.url}/logo.svg` } } },
+    { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Inicio', item: site.url }, { '@type': 'ListItem', position: 2, name: 'Guías', item: `${site.url}/guias` }, { '@type': 'ListItem', position: 3, name: post.title, item: `${site.url}/guias/${post.slug}` }] },
+  ],
+};
+const track = `guia_${post.slug.replaceAll('-', '_')}`;
+---
+<BaseLayout title={post.seoTitle} description={post.description} canonical={`/guias/${post.slug}`} type="article" jsonLd={jsonLd}>
+  <article class="post-page">
+    <div class="wrap">
+      <nav class="breadcrumbs" aria-label="Migas de pan"><a href="/">Inicio</a><span>/</span><a href="/guias">Guías</a><span>/</span><span aria-current="page">{post.category}</span></nav>
+      <header class="article-head"><span class="kicker">{post.category}</span><h1>{post.title}</h1><p class="lede">{post.description}</p><div class="article-meta"><time datetime={post.date}>Publicado el {new Intl.DateTimeFormat('es-AR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(post.date))}</time><span>{post.readTime} de lectura</span><span>Por LLC Argentina</span></div></header>
+      <div class="article-layout">
+        <div class="article-content">
+          {post.sections.map((section) => <section>
+            {section.heading && <h2>{section.heading}</h2>}
+            {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+            {section.bullets && <ul>{section.bullets.map((bullet) => <li>{bullet}</li>)}</ul>}
+            {section.note && <aside class="article-note">{section.note}</aside>}
+          </section>)}
+        </div>
+        <aside class="article-aside"><img class="mark" src="/isologo.svg" width="180" height="180" alt="" /><h2>¿Querés llevarlo a tu caso?</h2><p>Revisemos tu actividad, titulares y próximos pasos en una conversación inicial.</p><a class="btn btn--lime" href={calPath(track)} data-cal-trigger data-cal-content={track} data-cal-url={calUrl(track)}>Agendar llamada →</a><div class="start-links"><a href={site.startProcess} target="_blank" rel="noopener noreferrer">Abrir mi LLC con Start Companies →</a><a href={site.poweredBy} target="_blank" rel="noopener noreferrer">Conocer Start Companies →</a></div></aside>
+      </div>
+    </div>
+  </article>
+  <section class="section section--paper"><div class="wrap"><div class="section-head"><div><span class="kicker">Seguir leyendo</span><h2 class="title">Más piezas del <em>mapa.</em></h2></div><a class="btn btn--ghost" href="/guias">Todas las guías →</a></div><div class="blog-grid">{related.map((item, index) => <BlogCard post={item} index={index} />)}</div></div></section>
+</BaseLayout>

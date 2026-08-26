@@ -1,0 +1,14 @@
+---
+import type { Post } from '../data/posts';
+interface Props { post: Post; index?: number; }
+const { post, index = 0 } = Astro.props;
+---
+<article class="post-card reveal" data-category={post.category}>
+  <div class:list={['post-cover', post.accent]}><strong>{post.category}</strong><span>{String(index + 1).padStart(2, '0')}</span></div>
+  <div class="post-body">
+    <div class="post-meta"><span>{post.readTime}</span><time datetime={post.date}>{new Intl.DateTimeFormat('es-AR', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(post.date))}</time></div>
+    <h3><a href={`/guias/${post.slug}`}>{post.title}</a></h3>
+    <p>{post.description}</p>
+    <a class="read" href={`/guias/${post.slug}`} aria-label={`Leer ${post.title}`}>Leer guía →</a>
+  </div>
+</article>

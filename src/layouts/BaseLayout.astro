@@ -1,0 +1,79 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CalModal from '../components/CalModal.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const { title, description, canonical = Astro.url.pathname, image = '/og-card.png', type = 'website', jsonLd, noindex = false } = Astro.props;
+const canonicalUrl = new URL(canonical, site.url).toString();
+const imageUrl = new URL(image, site.url).toString();
+const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
+---
+<!doctype html>
+<html lang="es-419">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#f7f3e8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" />
+    <meta property="og:type" content={type} />
+    <meta property="og:locale" content="es_419" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    {jsonLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <Header />
+    <main id="contenido"><slot /></main>
+    <Footer />
+    <CalModal />
+    <script>
+      const header = document.querySelector('.site-header');
+      const menu = document.querySelector('.menu-btn');
+      const links = document.querySelector('.nav-links');
+      addEventListener('scroll', () => header?.classList.toggle('scrolled', scrollY > 12), { passive: true });
+      menu?.addEventListener('click', () => {
+        const open = links?.classList.toggle('open') ?? false;
+        menu.setAttribute('aria-expanded', String(open));
+      });
+      links?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+        links.classList.remove('open');
+        menu?.setAttribute('aria-expanded', 'false');
+      }));
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+          if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
+        }), { threshold: .1, rootMargin: '0px 0px -40px' });
+        document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+      } else document.querySelectorAll('.reveal').forEach((element) => element.classList.add('in'));
+    </script>
+  </body>
+</html>
