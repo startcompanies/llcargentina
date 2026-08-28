@@ -4,6 +4,9 @@ import BlogCard from '../../components/BlogCard.astro';
 import { posts, type Post } from '../../data/posts';
 import { calPath, calUrl, site } from '../../data/site';
 
+// Keep the guide library statically generated while the WhatsApp API route runs on Vercel.
+export const prerender = true;
+
 export function getStaticPaths() {
   return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
 }

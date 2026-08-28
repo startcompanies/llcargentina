@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CalModal from '../components/CalModal.astro';
+import WhatsAppFloatButton from '../components/WhatsAppFloatButton.astro';
 import { site } from '../data/site';
 
 interface Props {
@@ -54,7 +55,12 @@ const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
     <Header />
     <main id="contenido"><slot /></main>
     <Footer />
+    <WhatsAppFloatButton />
     <CalModal />
+    <script>
+      import { initWhatsAppTracking } from '../scripts/whatsapp-tracking';
+      initWhatsAppTracking();
+    </script>
     <script>
       const header = document.querySelector('.site-header');
       const menu = document.querySelector('.menu-btn');
