@@ -45,9 +45,7 @@ function report(data: Payload) {
   void fetch('/api/whatsapp-click', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body, keepalive: true }).catch(() => { /* Never affect WhatsApp. */ });
 }
 
-function whatsappUrl(phoneNumber: string, message: string, ticketId: string) { return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(`${encodeInvisibleTicket(ticketId)}${message}`)}`; }
-
-/** Global provider for legacy and direct destination links; share links lack a phone and are ignored. */
+/** Reports the click but deliberately leaves the anchor navigation untouched. */
 export function initWhatsAppTracking() {
   rememberWhatsAppAttribution();
   document.addEventListener('click', (event) => {
@@ -55,10 +53,8 @@ export function initWhatsAppTracking() {
     const target = event.target; if (!(target instanceof Element)) return;
     const anchor = target.closest<HTMLAnchorElement>('a[href]'); if (!anchor) return;
     const { phoneNumber, message } = parseWhatsAppHref(anchor.href); if (!phoneNumber) return;
-    event.preventDefault();
-    const visibleMessage = message || anchor.dataset.whatsappMessage || 'Hola, vengo de LLC Argentina y quiero consultar por la apertura de una LLC';
+    const visibleMessage = message || anchor.dataset.whatsappMessage || 'Hola, quiero abrir mi LLC desde Argentina [SC:llcargentina]';
     const data = payload(phoneNumber, visibleMessage, anchor.dataset.whatsappSurface || 'direct_whatsapp_link');
     report(data);
-    window.open(whatsappUrl(phoneNumber, visibleMessage, data.ticketId), '_blank', 'noopener,noreferrer');
   });
 }
