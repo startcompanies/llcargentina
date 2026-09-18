@@ -4,12 +4,12 @@ import { calPath, calUrl, site } from '../data/site';
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div class="footer-brand"><img src="/logo-light.svg" width="1090" height="240" alt="LLC Argentina by Start Companies" /><p>Te ayudamos a convertir una idea global en una estructura operativa clara, documentada y mantenible.</p></div>
+      <div class="footer-brand"><img src="/logo-light.svg" width="1090" height="240" alt="LLC Argentina by Isolate Brands LLC" /><p>Te ayudamos a convertir una idea global en una estructura operativa clara, documentada y mantenible.</p></div>
       <div class="footer-col"><h3>Explorar</h3><a href="/#servicios">Servicios</a><a href="/#proceso">Cómo funciona</a><a href="/#planes">Planes</a><a href="/guias">Guías</a></div>
       <div class="footer-col"><h3>Empezar</h3><a href={calPath('footer_agendar')} data-cal-trigger data-cal-content="footer_agendar" data-cal-url={calUrl('footer_agendar')}>Evaluar mi caso</a><a href={site.whatsapp} target="_blank" rel="noopener noreferrer" data-whatsapp-surface="footer_whatsapp">Escribir por WhatsApp</a><a href={site.poweredBy} target="_blank" rel="noopener noreferrer">Start Companies</a></div>
       <div class="footer-col"><h3>Contacto</h3><a href={`mailto:${site.email}`}>{site.email}</a><a href={`tel:${site.phone.replaceAll(' ', '')}`}>{site.phone}</a><span>{site.address}</span></div>
     </div>
-    <p class="disclaimer">LLC Argentina brinda acompañamiento administrativo y educativo. No es un estudio jurídico, una firma contable, una entidad gubernamental ni una institución financiera. La aprobación de cuentas y servicios depende exclusivamente de cada proveedor. La información del sitio es general y no reemplaza asesoramiento legal o tributario para tu situación.</p>
+    <p class="disclaimer">LLC Argentina es operado por {site.legalEntity}. Brinda acompañamiento administrativo y educativo. No es un estudio jurídico, una firma contable, una entidad gubernamental ni una institución financiera. La aprobación de cuentas y servicios depende exclusivamente de cada proveedor. La información del sitio es general y no reemplaza asesoramiento legal o tributario para tu situación.</p>
     <div class="footer-bottom"><span>© {new Date().getFullYear()} LLC Argentina. Todos los derechos reservados.</span><span>Hecho para negocios sin fronteras.</span></div>
   </div>
 </footer>
