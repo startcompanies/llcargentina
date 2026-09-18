@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1090 240" role="img" aria-labelledby="title desc">
   <title id="title">LLC Argentina</title>
-  <desc id="desc">LLC Argentina, by Start Companies.</desc>
+  <desc id="desc">LLC Argentina, by Isolate Brands LLC.</desc>
   <defs>
     <linearGradient id="leafDark" x1="28" y1="24" x2="145" y2="108" gradientUnits="userSpaceOnUse"><stop stop-color="#003c30"/><stop offset="1" stop-color="#00271f"/></linearGradient>
     <linearGradient id="leafLime" x1="28" y1="112" x2="126" y2="190" gradientUnits="userSpaceOnUse"><stop stop-color="#dff20a"/><stop offset="1" stop-color="#b9d900"/></linearGradient>
@@ -12,5 +12,5 @@
   </g>
   <text x="215" y="151" fill="#002d24" font-family="Arial, Helvetica, sans-serif" font-size="116" font-weight="900" letter-spacing="-5" textLength="205" lengthAdjust="spacingAndGlyphs">LLC</text>
   <text x="430" y="151" fill="#cfe800" font-family="Arial, Helvetica, sans-serif" font-size="116" font-weight="900" letter-spacing="-4" textLength="630" lengthAdjust="spacingAndGlyphs">Argentina</text>
-  <text x="219" y="193" fill="#527068" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="5">BY START COMPANIES</text>
+  <text x="219" y="193" fill="#527068" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="4.5">BY ISOLATE BRANDS LLC</text>
 </svg>
