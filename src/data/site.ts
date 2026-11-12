@@ -8,8 +8,8 @@ export const site = {
   legalEntity: 'ISOLATE BRANDS LLC',
   whatsapp: 'https://wa.me/17869354213?text=Hola%2C%20quiero%20abrir%20mi%20LLC%20desde%20Argentina%20%5BSC%3Allcargentina%5D',
   calendar: 'https://cal.com/startcompanies-businessenusa/calendario-crea-tu-llc-by-start-companies',
-  poweredBy: 'https://www.startcompanies.io/',
-  startProcess: 'https://panel.startcompanies.io/apertura-llc',
+  poweredBy: 'https://www.startcompanies.net/?ref=llcargentina&utm_source=llcargentina&utm_medium=satelite',
+  startProcess: 'https://panel.startcompanies.io/apertura-llc?ref=llcargentina&utm_source=llcargentina&utm_medium=satelite',
   socials: {
     instagram: 'https://www.instagram.com/startcompanies',
     linkedin: 'https://www.linkedin.com/company/startcompanies/',
